@@ -134,6 +134,8 @@
         <Compile Include="MapViewController.designer.cs">
             <DependentUpon>MapViewController.cs</DependentUpon>
         </Compile>
+        <Compile Include="VehicleMapMarker.cs" />
+        <Compile Include="VehicleImageContext.cs" />
     </ItemGroup>
     <ItemGroup>
       <ProjectReference Include="..\Xamarin.iOS.HEREMaps\Xamarin.iOS.HEREMaps.csproj">

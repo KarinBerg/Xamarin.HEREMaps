@@ -1,4 +1,6 @@
 ﻿using System;
+using CoreGraphics;
+using Foundation;
 using UIKit;
 using Xamarin.HEREMaps.iOS;
 
@@ -9,7 +11,7 @@ namespace HereMapsTestApp
         private NMAMapView mapView = null;
 
         public MapViewController(IntPtr handle) : base(handle)
-        { 
+        {
         }
 
         public override void ViewDidLoad()
@@ -27,6 +29,12 @@ namespace HereMapsTestApp
                 mapView.SetGeoCenter(geoCoordCenter, NMAMapAnimation.None);
 
                 mapView.ZoomLevel = 5;
+                mapView.WeakGestureDelegate = this;
+
+                // Add a test markers
+                mapView.AddMapObject(new VehicleMapMarker(new NMAGeoCoordinates(50.9605738, 7.7703383), "Testvehicle 1"));
+                mapView.AddMapObject(new VehicleMapMarker(new NMAGeoCoordinates(49.8022486, 8.6021228), "Testvehicle 2"));
+                mapView.AddMapObject(new VehicleMapMarker(new NMAGeoCoordinates(48.712405, 9.3061532), "Testvehicle 3"));
             });
         }
 
@@ -34,6 +42,21 @@ namespace HereMapsTestApp
         {
             base.DidReceiveMemoryWarning();
             // Release any cached data, images, etc that aren't in use.
+        }
+
+        //Weak Delegate: Bind to the Objective-C selector mapView:didReceiveTapAtLocation:
+        // https://docs.microsoft.com/en-us/xamarin/ios/app-fundamentals/delegates-protocols-and-events#delegates
+        [Export("mapView:didReceiveTapAtLocation:")]
+        public void DidReceiveTapAtLocation(NMAMapView mapView, CGPoint location)
+        {
+            //Create Alert
+            var okAlertController = UIAlertController.Create("Info", "You tapped on the map!", UIAlertControllerStyle.Alert);
+
+            //Add Action
+            okAlertController.AddAction(UIAlertAction.Create("OK", UIAlertActionStyle.Default, null));
+
+            // Present Alert
+            PresentViewController(okAlertController, true, null);
         }
     }
 }
