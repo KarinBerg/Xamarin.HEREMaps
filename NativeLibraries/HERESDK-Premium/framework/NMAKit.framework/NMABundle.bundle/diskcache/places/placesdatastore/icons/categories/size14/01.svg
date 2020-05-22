@@ -1,0 +1,14 @@
+
+<svg x="0px" contentScriptType="text/ecmascript" y="0px" width="14.0px"
+     xmlns:xlink="http://www.w3.org/1999/xlink" zoomAndPan="magnify"
+     contentStyleType="text/css" height="14.0px"
+     preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg"
+     version="1.0">
+    <g id="Accomodation_14-layer0.8303360254999381"/>
+    <g id="ICONS0.16063951770505047">
+        <g id="Accomodation_14_1_0.8977136135267964">
+            <path style="fill:#FFFFFF;"
+                  d="M3,5.5C3,4.672,3.672,4,4.502,4C5.328,4,5.99,4.672,5.99,5.5C5.99,6.329,5.328,7,4.502,7    C3.672,7,3,6.329,3,5.5z M1.996,8L1.99,3.5C1.99,3.225,1.768,3,1.495,3S1.01,3.225,1.01,3.5L1,11.5C1,11.775,1.225,12,1.5,12    S2,11.775,2,11.5L1.998,10H12v1.5c0,0.275,0.225,0.5,0.5,0.5s0.5-0.225,0.5-0.5V8H1.996z M12,5c0-0.55-0.451-1-1-1H7v3h5V5z"/>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,11 @@
+
+<svg x="0px" contentScriptType="text/ecmascript" y="0px" width="18.0px"
+     xmlns:xlink="http://www.w3.org/1999/xlink" zoomAndPan="magnify"
+     contentStyleType="text/css" height="18.0px"
+     preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg"
+     version="1.0">
+    <g id="Accomodation_18_1_0.6399273879169901">
+        <path style="fill:#FFFFFF;"
+              d="M3,7.5C3,6.672,3.672,6,4.502,6C5.328,6,6,6.672,6,7.5S5.328,9,4.502,9C3.672,9,3,8.328,3,7.5z    M1.996,10L1.99,4.5C1.99,4.225,1.775,4,1.5,4S1,4.225,1,4.5v10C1,14.775,1.225,15,1.5,15S2,14.775,2,14.5L1.998,12H16v3h1v-5   H1.996z M16,7c0-0.55-0.451-1-1-1H7v3h9V7z"/>
+    </g>
+</svg>

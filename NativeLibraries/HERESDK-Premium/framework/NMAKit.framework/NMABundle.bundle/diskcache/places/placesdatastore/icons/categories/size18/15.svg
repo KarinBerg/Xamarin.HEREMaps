@@ -1,0 +1,11 @@
+
+<svg x="0px" contentScriptType="text/ecmascript" y="0px" width="18.0px"
+     xmlns:xlink="http://www.w3.org/1999/xlink" zoomAndPan="magnify"
+     contentStyleType="text/css" height="18.0px"
+     preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg"
+     version="1.0">
+    <g id="ATM_18_1_0.9651363760239127">
+        <path style="fill:#FFFFFF;"
+              d="M2,2v5h2v10h10V7h2V2H2z M12,15H8v1H7v-1H6v-1h6V15z M12,12c0,0.55-0.451,1-1,1H7   c-0.55,0-1-0.45-1-1v-1c0-0.55,0.45-1,1-1h4c0.549,0,1,0.45,1,1V12z M12,8c0,0.55-0.451,1-1,1H7C6.45,9,6,8.55,6,8V7   c0-0.55,0.45-1,1-1h4c0.549,0,1,0.45,1,1V8z M15,6h-1V4H4v2H3V3h12V6z M7,7h4v1H7V7z M7,11h4v1H7V11z"/>
+    </g>
+</svg>

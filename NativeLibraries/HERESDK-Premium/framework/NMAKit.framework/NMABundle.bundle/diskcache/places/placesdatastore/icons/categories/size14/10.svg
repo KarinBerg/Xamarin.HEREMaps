@@ -1,0 +1,11 @@
+
+<svg x="0px" contentScriptType="text/ecmascript" y="0px" width="14.0px"
+     xmlns:xlink="http://www.w3.org/1999/xlink" zoomAndPan="magnify"
+     contentStyleType="text/css" height="14.0px"
+     preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg"
+     version="1.0">
+    <g id="Attraction_14_4_0.7844242062762371">
+        <path style="fill:#FFFFFF;"
+              d="M9,5C7.895,5,7,5.895,7,7s0.895,2,2,2c1.104,0,2-0.895,2-2S10.104,5,9,5z M9,8.334    C8.265,8.334,7.668,7.736,7.668,7S8.265,5.666,9,5.666c0.734,0,1.334,0.598,1.334,1.334S9.734,8.334,9,8.334z M12,3H5V2H3v1H2    C1.45,3,1.01,3.45,1.01,4v6c0,0.55,0.44,1,0.99,1h10c0.549,0,1-0.45,1-1V4C13,3.45,12.549,3,12,3z M5,5H3V4h2V5z M9,10.15    c-1.744,0-3.15-1.407-3.15-3.15S7.256,3.85,9,3.85S12.15,5.257,12.15,7S10.744,10.15,9,10.15z"/>
+    </g>
+</svg>

@@ -1,0 +1,479 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+
+<language lang="en-US">
+
+    <language_spec>
+        <locale_language>en-us</locale_language>
+        <general_language>en</general_language>
+        <marc_language>ENG</marc_language>
+        <preferred_miles_fraction>FOOT</preferred_miles_fraction>
+    </language_spec>
+
+    <unit_specification>
+        <unit_system_metric>
+            <quantity_single>   <unit default="m"></unit> </quantity_single>
+            <quantity_multiple>  <unit default="m"></unit> </quantity_multiple>
+            <quantity_single_kilo>  <unit default="km"></unit> </quantity_single_kilo>
+            <quantity_multiple_kilo>  <unit default="km"></unit> </quantity_multiple_kilo>
+        </unit_system_metric>
+
+        <unit_system_imperial>
+            <quantity_single>   <unit default="ft"></unit> </quantity_single>
+            <quantity_multiple>  <unit default="ft"></unit> </quantity_multiple>
+            <quantity_single_kilo>  <unit default="mi"></unit> </quantity_single_kilo>
+            <quantity_multiple_kilo>  <unit default="mi"></unit> </quantity_multiple_kilo>
+        </unit_system_imperial>
+
+        <unit_system_imperial_unused>
+            <quantity_single>   <unit default="ft"></unit> </quantity_single>
+            <quantity_multiple>  <unit default="ft"></unit> </quantity_multiple>
+            <quantity_single_kilo>  <unit default="mi"></unit> </quantity_single_kilo>
+            <quantity_multiple_kilo>  <unit default="mi"></unit> </quantity_multiple_kilo>
+        </unit_system_imperial_unused>
+
+    </unit_specification>
+
+    <time_format_specification>
+        <minutes>
+            <fmt default="${minutes} mins"></fmt>
+            <fmt regexpr="^1$">${minutes} min</fmt>
+        </minutes>
+        <minutes_short>
+            <fmt default="${minutes}"></fmt>
+            <fmt regexpr="^[0-9]$">0${minutes}</fmt>
+        </minutes_short>
+        <hours>
+            <fmt default="${hours}:00 h"></fmt>
+        </hours>
+        <hours_short>
+            <fmt default="${hours}"></fmt>
+        </hours_short>
+        <hours_and_minutes>
+            <fmt default="${hours_short}:${minutes_short} h"></fmt>
+        </hours_and_minutes>
+    </time_format_specification>
+
+    <transit_types>
+        <transit_type_bus_public>
+            <transit_type_name>bus</transit_type_name>
+            <transit_type_stopover>stop</transit_type_stopover>
+            <transit_type_station regexpr="^1$">stop</transit_type_station>
+            <transit_type_station default="stops"></transit_type_station>
+        </transit_type_bus_public>
+
+        <transit_type_bus_touristic>
+            <transit_type_name>bus</transit_type_name>
+            <transit_type_stopover>stop</transit_type_stopover>
+            <transit_type_station regexpr="^1$">stop</transit_type_station>
+            <transit_type_station default="stops"></transit_type_station>
+        </transit_type_bus_touristic>
+
+        <transit_type_bus_express>
+            <transit_type_name>bus</transit_type_name>
+            <transit_type_stopover>stop</transit_type_stopover>
+            <transit_type_station regexpr="^1$">stop</transit_type_station>
+            <transit_type_station default="stops"></transit_type_station>
+        </transit_type_bus_express>
+
+        <transit_type_bus_intercity>
+            <transit_type_name>bus</transit_type_name>
+            <transit_type_stopover>station</transit_type_stopover>
+            <transit_type_station regexpr="^1$">station</transit_type_station>
+            <transit_type_station default="stations"></transit_type_station>
+        </transit_type_bus_intercity>
+
+        <transit_type_rail_metro>
+            <transit_type_name>rail</transit_type_name>
+            <transit_type_stopover>station</transit_type_stopover>
+            <transit_type_station regexpr="^1$">station</transit_type_station>
+            <transit_type_station default="stations"></transit_type_station>
+        </transit_type_rail_metro>
+
+        <transit_type_rail_light>
+            <transit_type_name>rail</transit_type_name>
+            <transit_type_stopover>station</transit_type_stopover>
+            <transit_type_station regexpr="^1$">station</transit_type_station>
+            <transit_type_station default="stations"></transit_type_station>
+        </transit_type_rail_light>
+
+        <transit_type_rail_regional>
+            <transit_type_name>rail</transit_type_name>
+            <transit_type_stopover>station</transit_type_stopover>
+            <transit_type_station regexpr="^1$">station</transit_type_station>
+            <transit_type_station default="stations"></transit_type_station>
+        </transit_type_rail_regional>
+
+        <transit_type_rail_metro_regional>
+            <transit_type_name>rail</transit_type_name>
+            <transit_type_stopover>station</transit_type_stopover>
+            <transit_type_station regexpr="^1$">station</transit_type_station>
+            <transit_type_station default="stations"></transit_type_station>
+        </transit_type_rail_metro_regional>
+
+        <transit_type_train_regional>
+            <transit_type_name>train</transit_type_name>
+            <transit_type_stopover>station</transit_type_stopover>
+            <transit_type_station regexpr="^1$">station</transit_type_station>
+            <transit_type_station default="stations"></transit_type_station>
+        </transit_type_train_regional>
+
+        <transit_type_train_intercity>
+            <transit_type_name>train</transit_type_name>
+            <transit_type_stopover>station</transit_type_stopover>
+            <transit_type_station regexpr="^1$">station</transit_type_station>
+            <transit_type_station default="stations"></transit_type_station>
+        </transit_type_train_intercity>
+
+        <transit_type_train_high_speed>
+            <transit_type_name>train</transit_type_name>
+            <transit_type_stopover>station</transit_type_stopover>
+            <transit_type_station regexpr="^1$">station</transit_type_station>
+            <transit_type_station default="stations"></transit_type_station>
+        </transit_type_train_high_speed>
+
+        <transit_type_monorail>
+            <transit_type_name>monorail</transit_type_name>
+            <transit_type_stopover>station</transit_type_stopover>
+            <transit_type_station regexpr="^1$">station</transit_type_station>
+            <transit_type_station default="stations"></transit_type_station>
+        </transit_type_monorail>
+
+        <transit_type_aerial>
+            <transit_type_name>cable car</transit_type_name>
+            <transit_type_stopover>station</transit_type_stopover>
+            <transit_type_station regexpr="^1$">station</transit_type_station>
+            <transit_type_station default="stations"></transit_type_station>
+        </transit_type_aerial>
+
+        <transit_type_inclined>
+            <transit_type_name>inclined</transit_type_name>
+            <transit_type_stopover>station</transit_type_stopover>
+            <transit_type_station regexpr="^1$">station</transit_type_station>
+            <transit_type_station default="stations"></transit_type_station>
+        </transit_type_inclined>
+
+        <transit_type_water>
+            <transit_type_name>water transport</transit_type_name>
+            <transit_type_stopover>station</transit_type_stopover>
+            <transit_type_station regexpr="^1$">station</transit_type_station>
+            <transit_type_station default="stations"></transit_type_station>
+        </transit_type_water>
+
+    </transit_types>
+
+    <exit_number_roundabout>
+        <message id="1">take the <span class="exit">1st exit</span></message>
+        <message id="2">take the <span class="exit">2nd exit</span></message>
+        <message id="3">take the <span class="exit">3rd exit</span></message>
+        <message id="4">take the <span class="exit">4th exit</span></message>
+        <message id="5">take the <span class="exit">5th exit</span></message>
+        <message id="6">take the <span class="exit">6th exit</span></message>
+        <message id="7">take the <span class="exit">7th exit</span></message>
+        <message id="8">take the <span class="exit">8th exit</span></message>
+        <message id="9">take the <span class="exit">9th exit</span></message>
+        <message id="10">take the <span class="exit">10th exit</span></message>
+        <message id="11">take the <span class="exit">11th exit</span></message>
+        <message id="12">take the <span class="exit">12th exit</span></message>
+        <message id="UNDEFINED"></message>
+    </exit_number_roundabout>
+
+    <orientation>
+        <message id="NORTH_WEST">northwest</message>
+        <message id="UNDEFINED"></message>
+        <message id="NORTH_EAST">northeast</message>
+        <message id="EAST">east</message>
+        <message id="WEST">west</message>
+        <message id="NORTH">north</message>
+        <message id="SOUTH_WEST">southwest</message>
+        <message id="SOUTH">south</message>
+        <message id="SOUTH_EAST">southeast</message>
+    </orientation>
+
+    <turn_number_ped>
+        <message id="1">and turn at the <span class="exit">1st street</span> ${street}</message>
+        <message id="2">and turn at the <span class="exit">2nd street</span> ${street}</message>
+        <message id="3">and turn at the <span class="exit">3rd street</span> ${street}</message>
+        <message id="4">and turn at the <span class="exit">4th street</span> ${street}</message>
+        <message id="5">and turn at the <span class="exit">5th street</span> ${street}</message>
+        <message id="6">and turn at the <span class="exit">6th street</span> ${street}</message>
+        <message id="UNDEFINED"></message>
+    </turn_number_ped>
+
+    <itinerary_warnings>
+        <message id="tollZoneExit">Leaving Congestion Charge Zone</message>
+        <message id="checkTimetable">Check the timetable</message>
+        <message id="UNDEFINED"></message>
+        <message id="previousIntersection">The last intersection is <span class="street">${extra_string}</span></message>
+        <message id="privateRoad">Private road</message>
+        <message id="tollRoad">Toll road</message>
+        <message id="restrictedTurn">Turn may be temporarily forbidden</message>
+        <message id="nextIntersection">If you reach <span class="next-street">${extra_string}</span>, you’ve gone too far</message>
+        <message id="unpavedRoad">Unpaved road</message>
+        <message id="tollBooth">Stop for toll booth</message>
+        <message id="countryChange">Entering <span class="country">${extra_string}</span></message>
+        <message id="adminDivisionChange">Entering <span class="admin_division">${extra_string}</span></message>
+        <message id="tollZoneEnter">Entering Congestion Charge Zone. Applies ${day1} to ${day2} - ${time1} to ${time2}</message>
+        <message id="gateAccess">Gated road</message>
+        <message id="seasonalClosures">Road may be seasonally closed</message>
+        <message id="restrictedRoad">Road may be temporarily closed</message>
+    </itinerary_warnings>
+
+    <commands_common>
+        <message id="exit">Take the exit</message>
+        <message id="ped_ferry_distance">Stay on for ${distance} ${unit}</message>
+        <message id="mg_wait">${time} minutes to connect</message>
+        <message id="roundabout_signpost_street_name">${exit_no_roundabout} from ${roundabout_name} roundabout onto ${street} toward ${signpost}</message>
+        <message id="exit_number_signpost_street_l">Take <span class="direction">left</span> exit ${exit_number} toward ${signpost} onto ${street}</message>
+        <message id="mg_ped_summary_street">Walk to ${street}</message>
+        <message id="rail_ferry">Take the car shuttle train</message>
+        <message id="roundabout_signpost">${exit_no_roundabout} from roundabout toward ${signpost}</message>
+        <message id="ped_rail_ferry">Take the car shuttle train</message>
+        <message id="follow_roundabout">Follow the roundabout</message>
+        <message id="turn_hl">Turn <span class="direction">sharp left</span></message>
+        <message id="turn_ll">Turn <span class="direction">slightly left</span></message>
+        <message id="arrive_street">Arrive at ${street}</message>
+        <message id="exit_street_l">Take the <span class="direction">left</span> exit onto ${street}</message>
+        <message id="ramp_turn_ql_signpost">Turn <span class="direction">left</span> and take ramp toward ${signpost}</message>
+        <message id="head_orientation_street">Head ${orientation} on ${street}</message>
+        <message id="mg_drive_summary_street">Drive to ${street}</message>
+        <message id="arrive_r">Arrive at your destination on the right</message>
+        <message id="turn_keep_l">Keep <span class="direction">left</span></message>
+        <message id="turn_ll_signpost">Turn <span class="direction">slightly left</span> toward ${signpost}</message>
+        <message id="pt_change_line">Get off at ${station_company} ${station_name} and change to the ${transit_type} ${line_name}</message>
+        <message id="enter_urb_hwy_turn_street">and then enter the ${street} expressway</message>
+        <message id="ramp_turn_qr_street">Turn <span class="direction">right</span> and take ramp onto ${street}</message>
+        <message id="exit_signpost">Take the exit toward ${signpost}</message>
+        <message id="ramp_turn_qr_signpost">Turn <span class="direction">right</span> and take ramp toward ${signpost}</message>
+        <message id="depart_head_orientation_street">Depart from ${waypoint}. Head ${orientation} on ${street}</message>
+        <message id="pt_depart_station">Depart from ${station_company} ${station_name}</message>
+        <message id="ramp_no_turn">Take ramp</message>
+        <message id="roundabout_signpost_name">${exit_no_roundabout} from ${roundabout_name} roundabout toward ${signpost}</message>
+        <message id="uturn_cross">Make a U-Turn at ${cross_street}</message>
+        <message id="ped_roundabout_left">Walk <span class="direction">left</span> around the roundabout</message>
+        <message id="mg_walkto_summary">Walk to ${station_company} ${station_name}</message>
+        <message id="ped_roundabout_street_left">Walk <span class="direction">left</span> around the roundabout and turn onto ${street}</message>
+        <message id="exit_signpost_street_l">Take the <span class="direction">left</span> exit toward ${signpost} onto ${street}</message>
+        <message id="mg_getoff_arrive_summary">Get off at ${station_name} and walk to your destination</message>
+        <message id="turn_lr_signpost">Turn <span class="direction">slightly right</span> toward ${signpost}</message>
+        <message id="ped_rail_ferry_name">Take the ${street} car shuttle train</message>
+        <message id="turn_keep_m_street_signpost">Keep <span class="direction">middle</span> onto ${street} toward ${signpost}</message>
+        <message id="ped_head_orientation">Head ${orientation}</message>
+        <message id="pt_leave_station">Get off at ${station_name}</message>
+        <message id="turn_qr_signpost">Turn <span class="direction">right</span> toward ${signpost}</message>
+        <message id="mg_getoff_arrival">Get off at ${station_name}</message>
+        <message id="turn_ql_street_signpost">Turn <span class="direction">left</span> onto ${street} toward ${signpost}</message>
+        <message id="ped_ferry_name">Take the ${street} Ferry</message>
+        <message id="ramp_keep_m">Take <span class="direction">middle</span> ramp</message>
+        <message id="pass_roundabout">Pass the roundabout</message>
+        <message id="turn_qr_street_signpost">Turn <span class="direction">right</span> onto ${street} toward ${signpost}</message>
+        <message id="ramp_turn_hl_signpost">Turn <span class="direction">sharp left</span> and take ramp toward ${signpost}</message>
+        <message id="mg_ped_arrival_street">Arrive at ${street}</message>
+        <message id="turn_hr_signpost">Turn <span class="direction">sharp right</span> toward ${signpost}</message>
+        <message id="exit_signpost_r">Take the <span class="direction">right</span> exit toward ${signpost}</message>
+        <message id="uturn_street">Make a U-Turn onto ${street}</message>
+        <message id="depart_head_toward">Depart from ${waypoint}. Head toward ${toward_street}</message>
+        <message id="ped_roundabout_street_right">Walk <span class="direction">right</span> around the roundabout and turn onto ${street}</message>
+        <message id="exit_number_signpost_l">Take <span class="direction">left</span> exit ${exit_number} toward ${signpost}</message>
+        <message id="ramp_turn_ll_street">Turn <span class="direction">slightly left</span> and take ramp onto ${street}</message>
+        <message id="turn_qr_street">Turn <span class="direction">right</span> onto ${street}</message>
+        <message id="pt_distance">Follow for ${stop_count} ${station_type}</message>
+        <message id="enter_hwy_turn_signpost_street">and then enter the ${street} highway toward ${signpost}</message>
+        <message id="ped_turn_lr_street">Turn <span class="direction">slightly right</span> onto ${street}</message>
+        <message id="no_turn_signpost">Continue toward ${signpost}</message>
+        <message id="exit_signpost_l">Take the <span class="direction">left</span> exit toward ${signpost}</message>
+        <message id="ramp_keep_l_street_signpost">Take <span class="direction">left</span> ramp onto ${street} toward ${signpost}</message>
+        <message id="uturn_cross_street">Make a U-Turn at ${cross_street} onto ${street}</message>
+        <message id="ramp_keep_r_signpost">Take <span class="direction">right</span> ramp toward ${signpost}</message>
+        <message id="ramp_keep_l_street">Take <span class="direction">left</span> ramp onto ${street}</message>
+        <message id="turn_keep_r_signpost">Keep <span class="direction">right</span> toward ${signpost}</message>
+        <message id="turn_keep_m_signpost">Keep <span class="direction">middle</span> toward ${signpost}</message>
+        <message id="mg_drive_summary">Drive to your destination</message>
+        <message id="turn_hl_street_signpost">Turn <span class="direction">sharp left</span> onto ${street} toward ${signpost}</message>
+        <message id="ped_arrive_l_street">Arrive at ${street}. Your destination is on the left</message>
+        <message id="arrive_l">Arrive at your destination on the left</message>
+        <message id="ramp_turn_hr_street_signpost">Turn <span class="direction">sharp right</span> and take ramp onto ${street} toward ${signpost}</message>
+        <message id="turn_hl_street">Turn <span class="direction">sharp left</span> onto ${street}</message>
+        <message id="ped_arrive_r_street">Arrive at ${street}. Your destination is on the right</message>
+        <message id="head_toward_street">Head toward ${toward_street} on ${street}</message>
+        <message id="ramp_turn_qr_street_signpost">Turn <span class="direction">right</span> and take ramp onto ${street} toward ${signpost}</message>
+        <message id="pass_roundabout_number">Pass ${roundabout_count} roundabouts</message>
+        <message id="pass_roundabout_street">Pass the roundabout and continue on ${street}</message>
+        <message id="no_turn_street">Continue on ${street}</message>
+        <message id="exit_name">Take ${exit_name} exit</message>
+        <message id="ped_turn_hr">Turn <span class="direction">sharp right</span></message>
+        <message id="roundabout_signpost_street">${exit_no_roundabout} from roundabout onto ${street} toward ${signpost}</message>
+        <message id="turn_keep_r">Keep <span class="direction">right</span></message>
+        <message id="depart_head_orientation">Depart from ${waypoint}. Head ${orientation}</message>
+        <message id="ped_turn_ll_walkway">Turn <span class="direction">slightly left</span> onto the footpath</message>
+        <message id="ferry">Take the ferry</message>
+        <message id="ramp_turn_lr_street">Turn <span class="direction">slightly right</span> and take ramp onto ${street}</message>
+        <message id="mg_ped_summary">Walk to your destination</message>
+        <message id="turn_hr">Turn <span class="direction">sharp right</span></message>
+        <message id="ramp_turn_ql_street">Turn <span class="direction">left</span> and take ramp onto ${street}</message>
+        <message id="enter_hwy_turn_street">and then enter the ${street} highway</message>
+        <message id="turn_keep_r_street_signpost">Keep <span class="direction">right</span> onto ${street} toward ${signpost}</message>
+        <message id="turn_ll_street_signpost">Turn <span class="direction">slightly left</span> onto ${street} toward ${signpost}</message>
+        <message id="roundabout_name">${exit_no_roundabout} from ${roundabout_name} roundabout</message>
+        <message id="exit_number_signpost_street_r">Take <span class="direction">right</span> exit ${exit_number} toward ${signpost} onto ${street}</message>
+        <message id="arrive">Arrive at your destination</message>
+        <message id="ped_turn_keep_l">Take the street on the <span class="direction">left</span></message>
+        <message id="head_toward">Head toward ${toward_street}</message>
+        <message id="ramp_turn_hr_signpost">Turn <span class="direction">sharp right</span> and take ramp toward ${signpost}</message>
+        <message id="head_orientation">Head ${orientation}</message>
+        <message id="ped_turn_ql_street">Turn <span class="direction">left</span> onto ${street}</message>
+        <message id="ramp_turn_lr_signpost">Turn <span class="direction">slightly right</span> and take ramp toward ${signpost}</message>
+        <message id="enter_urb_hwy_turn_signpost_street">and then enter the ${street} expressway toward ${signpost}</message>
+        <message id="mg_ped_arrival">Arrive at your destination</message>
+        <message id="road_name_changed_street">Road name changes to ${street}</message>
+        <message id="arrive_l_street">Arrive at ${street}. Your destination is on the left</message>
+        <message id="exit_number_l">Take <span class="direction">left</span> exit ${exit_number}</message>
+        <message id="turn_ll_street">Turn <span class="direction">slightly left</span> onto ${street}</message>
+        <message id="enter_hwy_turn">and then enter the highway</message>
+        <message id="enter_hwy_turn_signpost">and then enter the highway toward ${signpost}</message>
+        <message id="exit_number_street">Take exit ${exit_number} onto ${street}</message>
+        <message id="exit_number_r">Take <span class="direction">right</span> exit ${exit_number}</message>
+        <message id="turn_ql_street">Turn <span class="direction">left</span> onto ${street}</message>
+        <message id="enter_urb_hwy">Enter the expressway</message>
+        <message id="turn_lr_street_signpost">Turn <span class="direction">slightly right</span> onto ${street} toward ${signpost}</message>
+        <message id="ped_arrive_street">Arrive at ${street}</message>
+        <message id="ped_depart_head_orientation">Depart from ${waypoint}. Head ${orientation}</message>
+        <message id="ped_turn_qr">Turn <span class="direction">right</span></message>
+        <message id="turn_lr">Turn <span class="direction">slightly right</span></message>
+        <message id="turn_hr_street">Turn <span class="direction">sharp right</span> onto ${street}</message>
+        <message id="exit_r">Take the <span class="direction">right</span> exit</message>
+        <message id="mg_ped_station_arrival">Arrive at ${station_name}</message>
+        <message id="ramp_no_turn_street_signpost">Take ramp onto ${street} toward ${signpost}</message>
+        <message id="ramp_turn_qr">Turn <span class="direction">right</span> and take ramp</message>
+        <message id="turn_keep_m">Keep <span class="direction">middle</span></message>
+        <message id="exit_street">Take the exit onto ${street}</message>
+        <message id="ped_turn_keep_r_street">Take the street on the <span class="direction">right</span>, ${street}</message>
+        <message id="ramp_no_turn_street">Take ramp onto ${street}</message>
+        <message id="enter_urb_hwy_turn_signpost">and then enter the expressway toward ${signpost}</message>
+        <message id="enter_roundabout">Enter the roundabout</message>
+        <message id="roundabout">${exit_no_roundabout} from roundabout</message>
+        <message id="uturn">Make a U-Turn</message>
+        <message id="ped_turn_keep_m">Take the street in the <span class="direction">middle</span></message>
+        <message id="depart_head_toward_street">Depart from ${waypoint}. Head toward ${toward_street} on ${street}</message>
+        <message id="mg_drive_arrival_street">Arrive at ${street}</message>
+        <message id="ped_no_turn_walkway">Continue straight onto the footpath</message>
+        <message id="ramp_turn_hr">Turn <span class="direction">sharp right</span> and take ramp</message>
+        <message id="ped_no_turn">Continue straight ahead</message>
+        <message id="enter_hwy_street">Enter the ${street} highway</message>
+        <message id="ped_roundabout_count_left">Walk <span class="direction">left</span> around the roundabout ${ped_turn_no}</message>
+        <message id="ped_turn_lr">Turn <span class="direction">slightly right</span></message>
+        <message id="turn_qr">Turn <span class="direction">right</span></message>
+        <message id="mg_change_summary">At station ${station_name} change to the ${transit_type} ${line_name}</message>
+        <message id="ramp_no_turn_signpost">Take ramp toward ${signpost}</message>
+        <message id="ped_distance">Go for ${distance} ${unit}</message>
+        <message id="empty_msg"></message>
+        <message id="ramp_turn_hr_street">Turn <span class="direction">sharp right</span> and take ramp onto ${street}</message>
+        <message id="turn_keep_r_street">Keep <span class="direction">right</span> onto ${street}</message>
+        <message id="ramp_keep_l">Take <span class="direction">left</span> ramp</message>
+        <message id="mg_take_summary">Take the ${transit_type} ${line_name} toward ${line_destination}</message>
+        <message id="ramp_keep_r_street">Take <span class="direction">right</span> ramp onto ${street}</message>
+        <message id="enter_urb_hwy_street">Enter the ${street} expressway</message>
+        <message id="enter_urb_hwy_turn">and then enter the expressway</message>
+        <message id="no_turn">Continue straight ahead</message>
+        <message id="mg_getoff_walkto_summary">Get off at ${station_name} and walk to ${station_company} ${next_station_name}</message>
+        <message id="pt_enter_station_destination">Go to the ${station_company} ${station_type} ${station_name} and take the ${transit_type} ${line_name} toward ${line_destination}</message>
+        <message id="pt_take_line_destination">Take the ${transit_type} ${line_name} toward ${line_destination}</message>
+        <message id="ped_turn_ll_street">Turn <span class="direction">slightly left</span> onto ${street}</message>
+        <message id="mg_drive_arrival">Arrive at your destination</message>
+        <message id="ped_no_turn_street">Continue straight onto ${street}</message>
+        <message id="turn_keep_l_street_signpost">Keep <span class="direction">left</span> onto ${street} toward ${signpost}</message>
+        <message id="turn_lr_street">Turn <span class="direction">slightly right</span> onto ${street}</message>
+        <message id="pt_enter_station">Go to the ${station_company} ${station_type} ${station_name} and take the ${transit_type} ${line_name}</message>
+        <message id="pt_take_line">Take the ${transit_type} ${line_name}</message>
+        <message id="ped_depart_head_orientation_street">Depart from ${waypoint}. Head ${orientation} on ${street}</message>
+        <message id="exit_number_signpost_r">Take <span class="direction">right</span> exit ${exit_number} toward ${signpost}</message>
+        <message id="ped_ferry">Take the ferry</message>
+        <message id="ferry_distance">Stay on for ${distance} ${unit}</message>
+        <message id="turn_keep_l_street">Keep <span class="direction">left</span> onto ${street}</message>
+        <message id="exit_name_street">Take ${exit_name} exit onto ${street}</message>
+        <message id="ramp_keep_m_street_signpost">Take <span class="direction">middle</span> ramp onto ${street} toward ${signpost}</message>
+        <message id="turn_keep_l_signpost">Keep <span class="direction">left</span> toward ${signpost}</message>
+        <message id="distance">Go for ${distance} ${unit}</message>
+        <message id="ramp_turn_lr">Turn <span class="direction">slightly right</span> and take ramp</message>
+        <message id="exit_name_signpost_street">Take ${exit_name} exit toward ${signpost} onto ${street}</message>
+        <message id="ped_turn_ql_signpost">Turn <span class="direction">left</span> toward ${signpost}</message>
+        <message id="exit_number_signpost">Take exit ${exit_number} toward ${signpost}</message>
+        <message id="enter_hwy_signpost">Enter the highway toward ${signpost}</message>
+        <message id="exit_number_signpost_street">Take exit ${exit_number} toward ${signpost} onto ${street}</message>
+        <message id="ped_turn_ql_walkway">Turn <span class="direction">left</span> onto the footpath</message>
+        <message id="ped_head_orientation_street">Head ${orientation} on ${street}</message>
+        <message id="ped_roundabout_right">Walk <span class="direction">right</span> around the roundabout</message>
+        <message id="ramp_turn_lr_street_signpost">Turn <span class="direction">slightly right</span> and take ramp onto ${street} toward ${signpost}</message>
+        <message id="turn_ql">Turn <span class="direction">left</span></message>
+        <message id="ped_turn_hr_signpost">Turn <span class="direction">sharp right</span> toward ${signpost}</message>
+        <message id="exit_street_r">Take the <span class="direction">right</span> exit onto ${street}</message>
+        <message id="ped_turn_keep_m_street">Take the street in the <span class="direction">middle</span>, ${street}</message>
+        <message id="ped_turn_hr_walkway">Turn <span class="direction">sharp right</span> onto the footpath</message>
+        <message id="ped_turn_ll_signpost">Turn <span class="direction">slightly left</span> toward ${signpost}</message>
+        <message id="turn_keep_m_street">Keep <span class="direction">middle</span> onto ${street}</message>
+        <message id="arrive_r_street">Arrive at ${street}. Your destination is on the right</message>
+        <message id="ped_turn_hr_street">Turn <span class="direction">sharp right</span> onto ${street}</message>
+        <message id="ped_turn_ql">Turn <span class="direction">left</span></message>
+        <message id="enter_urb_hwy_signpost">Enter the expressway toward ${signpost}</message>
+        <message id="turn_ql_signpost">Turn <span class="direction">left</span> toward ${signpost}</message>
+        <message id="exit_signpost_street">Take the exit toward ${signpost} onto ${street}</message>
+        <message id="ped_turn_keep_r">Take the street on the <span class="direction">right</span></message>
+        <message id="ped_arrive_r">Arrive at your destination on the right</message>
+        <message id="pass_roundabout_number_street">Pass ${roundabout_count} roundabouts and continue on ${street}</message>
+        <message id="ramp_keep_r_street_signpost">Take <span class="direction">right</span> ramp onto ${street} toward ${signpost}</message>
+        <message id="exit_signpost_street_r">Take the <span class="direction">right</span> exit toward ${signpost} onto ${street}</message>
+        <message id="ped_turn_hl_signpost">Turn <span class="direction">sharp left</span> toward ${signpost}</message>
+        <message id="ped_turn_keep_l_street">Take the street on the <span class="direction">left</span>, ${street}</message>
+        <message id="rail_ferry_name">Take the ${street} car shuttle train</message>
+        <message id="exit_number_street_l">Take <span class="direction">left</span> exit ${exit_number} onto ${street}</message>
+        <message id="ped_turn_ll">Turn <span class="direction">slightly left</span></message>
+        <message id="ped_turn_qr_street">Turn <span class="direction">right</span> onto ${street}</message>
+        <message id="ped_turn_lr_signpost">Turn <span class="direction">slightly right</span> toward ${signpost}</message>
+        <message id="exit_number_street_r">Take <span class="direction">right</span> exit ${exit_number} onto ${street}</message>
+        <message id="ramp_turn_ql">Turn <span class="direction">left</span> and take ramp</message>
+        <message id="ramp_turn_hl_street">Turn <span class="direction">sharp left</span> and take ramp onto ${street}</message>
+        <message id="ramp_turn_hl">Turn <span class="direction">sharp left</span> and take ramp</message>
+        <message id="ped_turn_qr_signpost">Turn <span class="direction">right</span> toward ${signpost}</message>
+        <message id="ped_turn_hl">Turn <span class="direction">sharp left</span></message>
+        <message id="ped_arrive_l">Arrive at your destination on the left</message>
+        <message id="ferry_name">Take the ${street} Ferry</message>
+        <message id="ramp_keep_l_signpost">Take <span class="direction">left</span> ramp toward ${signpost}</message>
+        <message id="ped_turn_lr_walkway">Turn <span class="direction">slightly right</span> onto the footpath</message>
+        <message id="ped_arrive">Arrive at your destination</message>
+        <message id="roundabout_street_name">${exit_no_roundabout} from ${roundabout_name} roundabout onto ${street}</message>
+        <message id="ped_roundabout_count_right">Walk <span class="direction">right</span> around the roundabout ${ped_turn_no}</message>
+        <message id="enter_hwy">Enter the highway</message>
+        <message id="ramp_keep_m_street">Take <span class="direction">middle</span> ramp onto ${street}</message>
+        <message id="exit_number">Take exit ${exit_number}</message>
+        <message id="ramp_keep_m_signpost">Take <span class="direction">middle</span> ramp toward ${signpost}</message>
+        <message id="ped_turn_qr_walkway">Turn <span class="direction">right</span> onto the footpath</message>
+        <message id="no_turn_street_signpost">Continue on ${street} toward ${signpost}</message>
+        <message id="ramp_turn_ll_signpost">Turn <span class="direction">slightly left</span> and take ramp toward ${signpost}</message>
+        <message id="ramp_turn_ll_street_signpost">Turn <span class="direction">slightly left</span> and take ramp onto ${street} toward ${signpost}</message>
+        <message id="exit_l">Take the <span class="direction">left</span> exit</message>
+        <message id="ped_turn_hl_street">Turn <span class="direction">sharp left</span> onto ${street}</message>
+        <message id="turn_hl_signpost">Turn <span class="direction">sharp left</span> toward ${signpost}</message>
+        <message id="ramp_keep_r">Take <span class="direction">right</span> ramp</message>
+        <message id="ramp_turn_ql_street_signpost">Turn <span class="direction">left</span> and take ramp onto ${street} toward ${signpost}</message>
+        <message id="mg_change_summary_destination">At station ${station_name} change to the ${transit_type} ${line_name} toward ${line_destination}</message>
+        <message id="pt_change_line_destination">Get off at ${station_company} ${station_name} and change to the ${transit_type} ${line_name} toward ${line_destination}</message>
+        <message id="enter_hwy_signpost_street">Enter the ${street} highway toward ${signpost}</message>
+        <message id="ramp_turn_hl_street_signpost">Turn <span class="direction">sharp left</span> and take ramp onto ${street} toward ${signpost}</message>
+        <message id="pt_leave_station_street">Get off at ${station_name} and walk to ${street}</message>
+        <message id="turn_hr_street_signpost">Turn <span class="direction">sharp right</span> onto ${street} toward ${signpost}</message>
+        <message id="ped_turn_hl_walkway">Turn <span class="direction">sharp left</span> onto the footpath</message>
+        <message id="ramp_turn_ll">Turn <span class="direction">slightly left</span> and take ramp</message>
+        <message id="enter_urb_hwy_signpost_street">Enter the ${street} expressway toward ${signpost}</message>
+        <message id="roundabout_street">${exit_no_roundabout} from roundabout onto ${street}</message>
+        <message id="exit_name_signpost">Take ${exit_name} exit toward ${signpost}</message>
+        <message id="route_summary_less_than">The trip takes ${distance} ${unit} and less than ${route_duration}</message>
+        <message id="route_summary">The trip takes ${distance} ${unit} and ${route_duration}</message>
+    </commands_common>
+
+    <attribution_texts>
+        <message id="UNDEFINED"></message>
+        <message id="attributionText">With the support of ${extra_string}. All information is provided without warranty of any kind.</message>
+        <message id="ticketPurchaseText">Buy tickets at ${extra_string}</message>
+    </attribution_texts>
+
+</language>
+

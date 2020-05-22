@@ -1,0 +1,14 @@
+
+<svg x="0px" contentScriptType="text/ecmascript" y="0px" width="14.0px"
+     xmlns:xlink="http://www.w3.org/1999/xlink" zoomAndPan="magnify"
+     contentStyleType="text/css" height="14.0px"
+     preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg"
+     version="1.0">
+    <g id="ATM_14-layer0.3011423518612546"/>
+    <g id="ICONS0.5599385110472427">
+        <g id="ATM_14_2_0.22911637540044827">
+            <path style="fill:#FFFFFF;"
+                  d="M13,1H1v4h2v8h8V5h2V1z M9,10H7v1H6v-1H5V9h4V10z M9,6v1c0,0.55-0.451,1-1,1H6C5.45,8,5,7.55,5,7V6    c0-0.55,0.45-1,1-1h2C8.549,5,9,5.45,9,6z M12,4h-1V3H3v1H2V2h10V4z M6,6h2v1H6V6z"/>
+        </g>
+    </g>
+</svg>

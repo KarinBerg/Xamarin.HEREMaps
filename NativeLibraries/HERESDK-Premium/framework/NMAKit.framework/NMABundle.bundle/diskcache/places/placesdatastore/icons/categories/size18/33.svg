@@ -1,0 +1,14 @@
+
+<svg x="0px" contentScriptType="text/ecmascript" y="0px" width="18.0px"
+     xmlns:xlink="http://www.w3.org/1999/xlink" zoomAndPan="magnify"
+     contentStyleType="text/css" height="18.0px"
+     preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg"
+     version="1.0">
+    <g id="Nightclub_18-layer0.39102745590906696"/>
+    <g id="0.5957437763193575">
+        <rect fill="#FFFFFF" width="18" fill-opacity="0" height="18"/>
+        <path fill="#FFFFFF"
+              d="M7,2C3.686,2,1,4.687,1,8c0,3.312,2.686,6,6,6c3.312,0,6-2.688,6-6C13,4.687,10.312,2,7,2z M7.002,11   C5.348,11,4,9.652,4,8c0-1.654,1.348-3,3.002-3C8.652,5,10,6.346,10,8C10,9.652,8.652,11,7.002,11z M16,10.043   c-0.001,0.049-0.018,0.773-0.307,2.004l0.854,0.375L14.541,17l-2.748-1.205l2.01-4.578l0.959,0.422   C14.984,10.63,15,10.047,15,10.037V6h-1V1h3v5h-1V10.043z"/>
+        <circle fill="#FFFFFF" r="1" cx="7" cy="8"/>
+    </g>
+</svg>

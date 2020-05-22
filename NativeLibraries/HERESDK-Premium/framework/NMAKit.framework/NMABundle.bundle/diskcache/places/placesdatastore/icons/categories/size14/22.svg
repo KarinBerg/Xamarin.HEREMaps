@@ -1,0 +1,14 @@
+
+<svg x="0px" contentScriptType="text/ecmascript" y="0px" width="14.0px"
+     xmlns:xlink="http://www.w3.org/1999/xlink" zoomAndPan="magnify"
+     contentStyleType="text/css" height="14.0px"
+     preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg"
+     version="1.0">
+    <g id="Bar_14-layer0.4807617530257896"/>
+    <g id="ICONS0.7029849768124924">
+        <g id="Bar_14_4_0.9752810182898652">
+            <path style="fill:#FFFFFF;"
+                  d="M11.777,1.146l-0.002-0.002c-0.193-0.193-0.512-0.193-0.707,0.001L8,4H2.529    C2.401,4,2.273,4.049,2.176,4.146c-0.195,0.195-0.195,0.512,0,0.707L6,8.727V12H4c-0.55,0-1,0.45-1,1h3h1h3c0-0.55-0.451-1-1-1H7    V8.732l3.854-3.879c0.195-0.195,0.195-0.512,0-0.707C10.756,4.049,10.628,4,10.5,4H9.625l2.152-2.147    C11.973,1.658,11.973,1.34,11.777,1.146z M7,7H5V5h2V7z"/>
+        </g>
+    </g>
+</svg>

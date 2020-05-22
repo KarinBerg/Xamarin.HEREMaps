@@ -1,0 +1,16 @@
+
+<svg x="0px" contentScriptType="text/ecmascript" y="0px" width="14.0px"
+     xmlns:xlink="http://www.w3.org/1999/xlink" zoomAndPan="magnify"
+     contentStyleType="text/css" height="14.0px"
+     preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg"
+     version="1.0">
+    <g id="Police_14-layer0.5185147276775991"/>
+    <g id="Isolationsmodus0.0668558255391769">
+        <g id="Police_14_5_0.9571167377257417">
+            <path style="fill:#FFFFFF;"
+                  d="M11,8v1.231C10.878,11.331,9.13,13,7,13s-3.878-1.669-4-3.769V8c0.978,0.599,2.398,1.2,4,1.2    S10.021,8.599,11,8z"/>
+            <path style="fill:#FFFFFF;"
+                  d="M7,1.25L1.25,4.673L2.894,7H7h4.105l1.645-2.327L7,1.25z M7,6.479C6.121,6.15,5.5,5.354,5.5,4.42    c0-0.195,0.032-0.377,0.081-0.557h2.838C8.469,4.043,8.5,4.226,8.5,4.42C8.5,5.354,7.879,6.15,7,6.479z"/>
+        </g>
+    </g>
+</svg>
