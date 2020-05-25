@@ -20,7 +20,7 @@
                  android:supportsRtl="true" 
                  android:theme="@style/AppTheme">
                 
-        <meta-data android:name="com.here.android.maps.appid" android:value="YOUR_APP_ID"/>         <meta-data android:name="com.here.android.maps.apptoken" android:value="YOUR_APP_TOKEN"/>-->         <meta-data android:name="com.here.android.maps.license.key" android:value="YOUR_LICENCE_KEY"/> 
+        <meta-data android:name="com.here.android.maps.appid" android:value="YOUR_APP_ID"/>         <meta-data android:name="com.here.android.maps.apptoken" android:value="YOUR_APP_TOKEN"/>         <meta-data android:name="com.here.android.maps.license.key" android:value="YOUR_LICENCE_KEY"/> 
         <service android:name="com.here.android.mpa.service.MapService" android:label="HereMapsTestApp" android:exported="false">             <intent-filter>                 <action android:name="com.here.android.mpa.service.MapService.v3"></action>             </intent-filter>         </service>
         
     </application>
