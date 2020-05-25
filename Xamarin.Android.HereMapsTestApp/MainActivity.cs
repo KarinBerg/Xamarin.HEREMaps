@@ -1,5 +1,5 @@
-﻿using System;
-using Android.App;
+﻿using Android.App;
+using Android.Content;
 using Android.OS;
 using Android.Runtime;
 using Android.Util;
@@ -7,7 +7,6 @@ using Android.Widget;
 using AndroidX.AppCompat.App;
 using Com.Here.Android.Mpa.Common;
 using Com.Here.Android.Mpa.Mapping;
-using Java.Interop;
 using Java.IO;
 
 namespace Xamarin.Android.HereMapsTestApp
@@ -24,9 +23,11 @@ namespace Xamarin.Android.HereMapsTestApp
         {
             base.OnCreate(savedInstanceState);
             Essentials.Platform.Init(this, savedInstanceState);
+
             // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.activity_main);
 
+            // Search for the map fragment to finish setup by calling Init().
             mapFragment = (AndroidXMapFragment)SupportFragmentManager.FindFragmentById(Resource.Id.mapfragment);
 
             // Set up disk cache path for the map service for this application
@@ -74,6 +75,8 @@ namespace Xamarin.Android.HereMapsTestApp
                 else
                 {
                     // print error
+                    Log.Error("MainActivity", "ERROR: Cannot initialize Map Fragment: " + error.Details);                    
+
                 }
             }
         }
