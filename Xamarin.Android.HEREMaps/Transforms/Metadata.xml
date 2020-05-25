@@ -1,0 +1,724 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+    <!--
+  This sample removes the class: android.support.v4.content.AsyncTaskLoader.LoadTask:
+  <remove-node path="/api/package[@name='android.support.v4.content']/class[@name='AsyncTaskLoader.LoadTask']" />
+  
+  This sample removes the method: android.support.v4.content.CursorLoader.loadInBackground:
+  <remove-node path="/api/package[@name='android.support.v4.content']/class[@name='CursorLoader']/method[@name='loadInBackground']" />
+  -->
+  <remove-node path="/api/package[@name='com.here.sdk.analytics']" />
+  <remove-node path="/api/package[@name='com.here.sdk.analytics.util']" />
+  <remove-node path="/api/package[@name='com.here.sdk.analytics.internal']" />
+  <remove-node path="/api/package[@name='com.here.sdk.hacwrapper']" />
+  <remove-node path="/api/package[@name='com.here.odnp.util']" />
+  <!--<remove-node path="/api/package[@name='com.here.odnp.util']/class[@name='OdnpIOUtils']/method[@name='close' and count(parameter)=1 and parameter[1][@type='java.io.OutputStream']]"/>-->
+  <!--<remove-node path="/api/package[@name='com.here.odnp']" />-->
+  <remove-node path="/api/package[@name='com.here.odnp.wifi']" />
+  <remove-node path="/api/package[@name='com.here.odnp.posclient']" />
+  <remove-node path="/api/package[@name='com.nokia.maps']" />
+  <remove-node path="/api/package[@name='com.here.services']" />
+  <remove-node path="/api/package[@name='com.here.services.radiomap']" />
+  <remove-node path="/api/package[@name='com.here.services.radiomap.internal']" />
+  <remove-node path="/api/package[@name='com.here.services.playback']" />
+  <remove-node path="/api/package[@name='com.here.android.mpa.pde']" />
+  <remove-node path="/api/package[@name='com.here.android.mpa.mapping']/class[@name='MapOffScreenRenderer']" />
+  <remove-node path="/api/package[@name='com.here.android.mpa.search']" />
+    
+ <!--<add-node path="/api/package[@name='com.here.android.mpa.mapping']">
+    <class
+      abstract="false"
+      deprecated="not deprecated"
+      jni-extends="Landroidx/fragment/app/Fragment;"
+      extends="androidx.fragment.app.Fragment"
+      extends-generic-aware="androidx.fragment.app.Fragment"
+      final="false"
+      name="AndroidXMapFragment"
+      jni-signature="Lcom/here/android/mpa/mapping/AndroidXMapFragment;"
+      source-file-name="AndroidXMapFragment.java"
+      static="false"
+      visibility="public">
+      <implements
+        name="com.nokia.maps.p2"
+        name-generic-aware="com.nokia.maps.p2"
+        jni-type="Lcom/nokia/maps/p2;" />
+      <constructor
+        deprecated="not deprecated"
+        final="false"
+        name="AndroidXMapFragment"
+        static="false"
+        visibility="public"
+        bridge="false"
+        synthetic="false"
+        jni-signature="()V" />
+      <method
+        abstract="false"
+        deprecated="not deprecated"
+        final="false"
+        name="addIconGestureListener"
+        native="false"
+        return="void"
+        jni-return="V"
+        static="false"
+        synchronized="false"
+        visibility="public"
+        bridge="false"
+        synthetic="false"
+        jni-signature="(Lcom/here/android/mpa/mapping/MapView$IconGestureListener;)V">
+        <parameter
+          name="p0"
+          type="com.here.android.mpa.mapping.MapView.IconGestureListener"
+          jni-type="Lcom/here/android/mpa/mapping/MapView$IconGestureListener;" />
+      </method>
+      <method
+        abstract="false"
+        deprecated="not deprecated"
+        final="false"
+        name="addOnMapRenderListener"
+        native="false"
+        return="void"
+        jni-return="V"
+        static="false"
+        synchronized="false"
+        visibility="public"
+        bridge="false"
+        synthetic="false"
+        jni-signature="(Lcom/here/android/mpa/mapping/OnMapRenderListener;)V">
+        <parameter
+          name="p0"
+          type="com.here.android.mpa.mapping.OnMapRenderListener"
+          jni-type="Lcom/here/android/mpa/mapping/OnMapRenderListener;" />
+      </method>
+      <method
+        abstract="false"
+        deprecated="not deprecated"
+        final="false"
+        name="getClipRect"
+        native="false"
+        return="com.here.android.mpa.common.ViewRect"
+        jni-return="Lcom/here/android/mpa/common/ViewRect;"
+        static="false"
+        synchronized="false"
+        visibility="public"
+        bridge="false"
+        synthetic="false"
+        jni-signature="()Lcom/here/android/mpa/common/ViewRect;" />
+      <method
+        abstract="false"
+        deprecated="not deprecated"
+        final="false"
+        name="getCopyrightBoundaryRect"
+        native="false"
+        return="android.graphics.Rect"
+        jni-return="Landroid/graphics/Rect;"
+        static="false"
+        synchronized="false"
+        visibility="public"
+        bridge="false"
+        synthetic="false"
+        jni-signature="()Landroid/graphics/Rect;" />
+      <method
+        abstract="false"
+        deprecated="not deprecated"
+        final="false"
+        name="getCopyrightLogoHeight"
+        native="false"
+        return="int"
+        jni-return="I"
+        static="false"
+        synchronized="false"
+        visibility="public"
+        bridge="false"
+        synthetic="false"
+        jni-signature="()I" />
+      <method
+        abstract="false"
+        deprecated="not deprecated"
+        final="false"
+        name="getCopyrightLogoPosition"
+        native="false"
+        return="com.here.android.mpa.common.CopyrightLogoPosition"
+        jni-return="Lcom/here/android/mpa/common/CopyrightLogoPosition;"
+        static="false"
+        synchronized="false"
+        visibility="public"
+        bridge="false"
+        synthetic="false"
+        jni-signature="()Lcom/here/android/mpa/common/CopyrightLogoPosition;" />
+      <method
+        abstract="false"
+        deprecated="not deprecated"
+        final="false"
+        name="getCopyrightLogoWidth"
+        native="false"
+        return="int"
+        jni-return="I"
+        static="false"
+        synchronized="false"
+        visibility="public"
+        bridge="false"
+        synthetic="false"
+        jni-signature="()I" />
+      <method
+        abstract="false"
+        deprecated="not deprecated"
+        final="false"
+        name="getCopyrightMargin"
+        native="false"
+        return="int"
+        jni-return="I"
+        static="false"
+        synchronized="false"
+        visibility="public"
+        bridge="false"
+        synthetic="false"
+        jni-signature="()I" />
+      <method
+        abstract="false"
+        deprecated="not deprecated"
+        final="false"
+        name="getMap"
+        native="false"
+        return="com.here.android.mpa.mapping.Map"
+        jni-return="Lcom/here/android/mpa/mapping/Map;"
+        static="false"
+        synchronized="false"
+        visibility="public"
+        bridge="false"
+        synthetic="false"
+        jni-signature="()Lcom/here/android/mpa/mapping/Map;" />
+      <method
+        abstract="false"
+        deprecated="not deprecated"
+        final="false"
+        name="getMapGesture"
+        native="false"
+        return="com.here.android.mpa.mapping.MapGesture"
+        jni-return="Lcom/here/android/mpa/mapping/MapGesture;"
+        static="false"
+        synchronized="false"
+        visibility="public"
+        bridge="false"
+        synthetic="false"
+        jni-signature="()Lcom/here/android/mpa/mapping/MapGesture;" />
+      <method
+        abstract="false"
+        deprecated="not deprecated"
+        final="false"
+        name="getPositionIndicator"
+        native="false"
+        return="com.here.android.mpa.mapping.PositionIndicator"
+        jni-return="Lcom/here/android/mpa/mapping/PositionIndicator;"
+        static="false"
+        synchronized="false"
+        visibility="public"
+        bridge="false"
+        synthetic="false"
+        jni-signature="()Lcom/here/android/mpa/mapping/PositionIndicator;" />
+      <method
+        abstract="false"
+        deprecated="not deprecated"
+        final="false"
+        name="getScreenCapture"
+        native="false"
+        return="void"
+        jni-return="V"
+        static="false"
+        synchronized="false"
+        visibility="public"
+        bridge="false"
+        synthetic="false"
+        jni-signature="(Lcom/here/android/mpa/common/OnScreenCaptureListener;)V">
+        <parameter
+          name="p0"
+          type="com.here.android.mpa.common.OnScreenCaptureListener"
+          jni-type="Lcom/here/android/mpa/common/OnScreenCaptureListener;" />
+      </method>
+      <method
+        abstract="false"
+        deprecated="not deprecated"
+        final="false"
+        name="init"
+        native="false"
+        return="void"
+        jni-return="V"
+        static="false"
+        synchronized="false"
+        visibility="public"
+        bridge="false"
+        synthetic="false"
+        jni-signature="(Lcom/here/android/mpa/common/ApplicationContext;Lcom/here/android/mpa/common/OnEngineInitListener;)V">
+        <parameter
+          name="p0"
+          type="com.here.android.mpa.common.ApplicationContext"
+          jni-type="Lcom/here/android/mpa/common/ApplicationContext;" />
+        <parameter
+          name="p1"
+          type="com.here.android.mpa.common.OnEngineInitListener"
+          jni-type="Lcom/here/android/mpa/common/OnEngineInitListener;" />
+      </method>
+      <method
+        abstract="false"
+        deprecated="not deprecated"
+        final="false"
+        name="init"
+        native="false"
+        return="void"
+        jni-return="V"
+        static="false"
+        synchronized="false"
+        visibility="public"
+        bridge="false"
+        synthetic="false"
+        jni-signature="(Lcom/here/android/mpa/common/OnEngineInitListener;)V">
+        <parameter
+          name="p0"
+          type="com.here.android.mpa.common.OnEngineInitListener"
+          jni-type="Lcom/here/android/mpa/common/OnEngineInitListener;" />
+      </method>
+      <method
+        abstract="false"
+        deprecated="not deprecated"
+        final="false"
+        name="onCreateView"
+        native="false"
+        return="android.view.View"
+        jni-return="Landroid/view/View;"
+        static="false"
+        synchronized="false"
+        visibility="public"
+        bridge="false"
+        synthetic="false"
+        jni-signature="(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;">
+        <parameter
+          name="p0"
+          type="android.view.LayoutInflater"
+          jni-type="Landroid/view/LayoutInflater;" />
+        <parameter
+          name="p1"
+          type="android.view.ViewGroup"
+          jni-type="Landroid/view/ViewGroup;" />
+        <parameter
+          name="p2"
+          type="android.os.Bundle"
+          jni-type="Landroid/os/Bundle;" />
+      </method>
+      <method
+        abstract="false"
+        deprecated="not deprecated"
+        final="false"
+        name="onDestroyView"
+        native="false"
+        return="void"
+        jni-return="V"
+        static="false"
+        synchronized="false"
+        visibility="public"
+        bridge="false"
+        synthetic="false"
+        jni-signature="()V" />
+      <method
+        abstract="false"
+        deprecated="not deprecated"
+        final="false"
+        name="onInflate"
+        native="false"
+        return="void"
+        jni-return="V"
+        static="false"
+        synchronized="false"
+        visibility="public"
+        bridge="false"
+        synthetic="false"
+        jni-signature="(Landroid/content/Context;Landroid/util/AttributeSet;Landroid/os/Bundle;)V">
+        <parameter
+          name="p0"
+          type="android.content.Context"
+          jni-type="Landroid/content/Context;" />
+        <parameter
+          name="p1"
+          type="android.util.AttributeSet"
+          jni-type="Landroid/util/AttributeSet;" />
+        <parameter
+          name="p2"
+          type="android.os.Bundle"
+          jni-type="Landroid/os/Bundle;" />
+      </method>
+      <method
+        abstract="false"
+        deprecated="not deprecated"
+        final="false"
+        name="onPause"
+        native="false"
+        return="void"
+        jni-return="V"
+        static="false"
+        synchronized="false"
+        visibility="public"
+        bridge="false"
+        synthetic="false"
+        jni-signature="()V" />
+      <method
+        abstract="false"
+        deprecated="not deprecated"
+        final="false"
+        name="onResume"
+        native="false"
+        return="void"
+        jni-return="V"
+        static="false"
+        synchronized="false"
+        visibility="public"
+        bridge="false"
+        synthetic="false"
+        jni-signature="()V" />
+      <method
+        abstract="false"
+        deprecated="not deprecated"
+        final="false"
+        name="onSaveInstanceState"
+        native="false"
+        return="void"
+        jni-return="V"
+        static="false"
+        synchronized="false"
+        visibility="public"
+        bridge="false"
+        synthetic="false"
+        jni-signature="(Landroid/os/Bundle;)V">
+        <parameter
+          name="p0"
+          type="android.os.Bundle"
+          jni-type="Landroid/os/Bundle;" />
+      </method>
+      <method
+        abstract="false"
+        deprecated="not deprecated"
+        final="false"
+        name="removeIconGestureListener"
+        native="false"
+        return="void"
+        jni-return="V"
+        static="false"
+        synchronized="false"
+        visibility="public"
+        bridge="false"
+        synthetic="false"
+        jni-signature="(Lcom/here/android/mpa/mapping/MapView$IconGestureListener;)V">
+        <parameter
+          name="p0"
+          type="com.here.android.mpa.mapping.MapView.IconGestureListener"
+          jni-type="Lcom/here/android/mpa/mapping/MapView$IconGestureListener;" />
+      </method>
+      <method
+        abstract="false"
+        deprecated="not deprecated"
+        final="false"
+        name="removeOnMapRenderListener"
+        native="false"
+        return="void"
+        jni-return="V"
+        static="false"
+        synchronized="false"
+        visibility="public"
+        bridge="false"
+        synthetic="false"
+        jni-signature="(Lcom/here/android/mpa/mapping/OnMapRenderListener;)V">
+        <parameter
+          name="p0"
+          type="com.here.android.mpa.mapping.OnMapRenderListener"
+          jni-type="Lcom/here/android/mpa/mapping/OnMapRenderListener;" />
+      </method>
+      <method
+        abstract="false"
+        deprecated="not deprecated"
+        final="false"
+        name="setClipRect"
+        native="false"
+        return="void"
+        jni-return="V"
+        static="false"
+        synchronized="false"
+        visibility="public"
+        bridge="false"
+        synthetic="false"
+        jni-signature="(Lcom/here/android/mpa/common/ViewRect;)V">
+        <parameter
+          name="p0"
+          type="com.here.android.mpa.common.ViewRect"
+          jni-type="Lcom/here/android/mpa/common/ViewRect;" />
+      </method>
+      <method
+        abstract="false"
+        deprecated="not deprecated"
+        final="false"
+        name="setClipRect"
+        native="false"
+        return="void"
+        jni-return="V"
+        static="false"
+        synchronized="false"
+        visibility="public"
+        bridge="false"
+        synthetic="false"
+        jni-signature="(Lcom/here/android/mpa/common/ViewRect;Landroid/graphics/PointF;)V">
+        <parameter
+          name="p0"
+          type="com.here.android.mpa.common.ViewRect"
+          jni-type="Lcom/here/android/mpa/common/ViewRect;" />
+        <parameter
+          name="p1"
+          type="android.graphics.PointF"
+          jni-type="Landroid/graphics/PointF;" />
+      </method>
+      <method
+        abstract="false"
+        deprecated="not deprecated"
+        final="false"
+        name="setCopyrightBoundaryRect"
+        native="false"
+        return="void"
+        jni-return="V"
+        static="false"
+        synchronized="false"
+        visibility="public"
+        bridge="false"
+        synthetic="false"
+        jni-signature="(Landroid/graphics/Rect;)V">
+        <parameter
+          name="p0"
+          type="android.graphics.Rect"
+          jni-type="Landroid/graphics/Rect;" />
+      </method>
+      <method
+        abstract="false"
+        deprecated="not deprecated"
+        final="false"
+        name="setCopyrightLogoPosition"
+        native="false"
+        return="void"
+        jni-return="V"
+        static="false"
+        synchronized="false"
+        visibility="public"
+        bridge="false"
+        synthetic="false"
+        jni-signature="(Lcom/here/android/mpa/common/CopyrightLogoPosition;)V">
+        <parameter
+          name="p0"
+          type="com.here.android.mpa.common.CopyrightLogoPosition"
+          jni-type="Lcom/here/android/mpa/common/CopyrightLogoPosition;" />
+      </method>
+      <method
+        abstract="false"
+        deprecated="not deprecated"
+        final="false"
+        name="setCopyrightMargin"
+        native="false"
+        return="void"
+        jni-return="V"
+        static="false"
+        synchronized="false"
+        visibility="public"
+        bridge="false"
+        synthetic="false"
+        jni-signature="(I)V">
+        <parameter
+          name="p0"
+          type="int"
+          jni-type="I" />
+      </method>
+      <method
+        abstract="false"
+        deprecated="not deprecated"
+        final="false"
+        name="setMap"
+        native="false"
+        return="void"
+        jni-return="V"
+        static="false"
+        synchronized="false"
+        visibility="public"
+        bridge="false"
+        synthetic="false"
+        jni-signature="(Lcom/here/android/mpa/mapping/Map;)V">
+        <parameter
+          name="p0"
+          type="com.here.android.mpa.mapping.Map"
+          jni-type="Lcom/here/android/mpa/mapping/Map;" />
+      </method>
+      <method
+        abstract="false"
+        deprecated="not deprecated"
+        final="false"
+        name="setMapMarkerDragListener"
+        native="false"
+        return="void"
+        jni-return="V"
+        static="false"
+        synchronized="false"
+        visibility="public"
+        bridge="false"
+        synthetic="false"
+        jni-signature="(Lcom/here/android/mpa/mapping/MapMarker$OnDragListener;)V">
+        <parameter
+          name="p0"
+          type="com.here.android.mpa.mapping.MapMarker.OnDragListener"
+          jni-type="Lcom/here/android/mpa/mapping/MapMarker$OnDragListener;" />
+      </method>
+      <method
+        abstract="false"
+        deprecated="not deprecated"
+        final="false"
+        name="setOnTouchListener"
+        native="false"
+        return="void"
+        jni-return="V"
+        static="false"
+        synchronized="false"
+        visibility="public"
+        bridge="false"
+        synthetic="false"
+        jni-signature="(Landroid/view/View$OnTouchListener;)V">
+        <parameter
+          name="p0"
+          type="android.view.View.OnTouchListener"
+          jni-type="Landroid/view/View$OnTouchListener;" />
+      </method>
+    </class>
+    <class
+      abstract="false"
+      deprecated="not deprecated"
+      jni-extends="Lcom/here/android/mpa/mapping/MapObject;"
+      extends="com.here.android.mpa.mapping.MapObject"
+      extends-generic-aware="com.here.android.mpa.mapping.MapObject"
+      final="false"
+      name="FTCRMapRoute"
+      jni-signature="Lcom/here/android/mpa/mapping/FTCRMapRoute;"
+      source-file-name="FTCRMapRoute.java"
+      static="false"
+      visibility="public">
+      <constructor
+        deprecated="not deprecated"
+        final="false"
+        name="FTCRMapRoute"
+        static="false"
+        visibility="public"
+        bridge="false"
+        synthetic="false"
+        jni-signature="(Lcom/here/android/mpa/ftcr/FTCRRoute;)V">
+        <parameter
+          name="p0"
+          type="com.here.android.mpa.ftcr.FTCRRoute"
+          jni-type="Lcom/here/android/mpa/ftcr/FTCRRoute;" />
+      </constructor>
+      <method
+        abstract="false"
+        deprecated="not deprecated"
+        final="false"
+        name="getColor"
+        native="false"
+        return="int"
+        jni-return="I"
+        static="false"
+        synchronized="false"
+        visibility="public"
+        bridge="false"
+        synthetic="false"
+        jni-signature="()I" />
+      <method
+        abstract="false"
+        deprecated="not deprecated"
+        final="false"
+        name="getType"
+        native="false"
+        return="com.here.android.mpa.mapping.MapObject.Type"
+        jni-return="Lcom/here/android/mpa/mapping/MapObject$Type;"
+        static="false"
+        synchronized="false"
+        visibility="public"
+        bridge="false"
+        synthetic="false"
+        jni-signature="()Lcom/here/android/mpa/mapping/MapObject$Type;" />
+      <method
+        abstract="false"
+        deprecated="not deprecated"
+        final="false"
+        name="setColor"
+        native="false"
+        return="com.here.android.mpa.mapping.FTCRMapRoute"
+        jni-return="Lcom/here/android/mpa/mapping/FTCRMapRoute;"
+        static="false"
+        synchronized="false"
+        visibility="public"
+        bridge="false"
+        synthetic="false"
+        jni-signature="(I)Lcom/here/android/mpa/mapping/FTCRMapRoute;">
+        <parameter
+          name="p0"
+          type="int"
+          jni-type="I" />
+      </method>
+    </class>
+    <class
+      abstract="false"
+      deprecated="not deprecated"
+      jni-extends="Lcom/here/android/mpa/mapping/Mesh;"
+      extends="com.here.android.mpa.mapping.Mesh"
+      extends-generic-aware="com.here.android.mpa.mapping.Mesh"
+      final="true"
+      name="GeoMesh"
+      jni-signature="Lcom/here/android/mpa/mapping/GeoMesh;"
+      source-file-name="GeoMesh.java"
+      static="false"
+      visibility="public">
+      <constructor
+        deprecated="not deprecated"
+        final="false"
+        name="GeoMesh"
+        static="false"
+        visibility="public"
+        bridge="false"
+        synthetic="false"
+        jni-signature="()V" />
+      <method
+        abstract="false"
+        deprecated="not deprecated"
+        final="false"
+        name="setVertices"
+        native="false"
+        return="com.here.android.mpa.mapping.GeoMesh"
+        jni-return="Lcom/here/android/mpa/mapping/GeoMesh;"
+        static="false"
+        synchronized="false"
+        visibility="public"
+        bridge="false"
+        synthetic="false"
+        jni-signature="(Ljava/nio/DoubleBuffer;)Lcom/here/android/mpa/mapping/GeoMesh;">
+        <parameter
+          name="p0"
+          type="java.nio.DoubleBuffer"
+          jni-type="Ljava/nio/DoubleBuffer;" />
+      </method>
+      <method
+        abstract="false"
+        deprecated="not deprecated"
+        final="false"
+        name="setVertices"
+        native="false"
+        return="com.here.android.mpa.mapping.GeoMesh"
+        jni-return="Lcom/here/android/mpa/mapping/GeoMesh;"
+        static="false"
+        synchronized="false"
+        visibility="public"
+        bridge="false"
+        synthetic="false"
+        jni-signature="(Ljava/util/List;)Lcom/here/android/mpa/mapping/GeoMesh;">
+        <parameter
+          name="p0"
+          type="java.util.List&lt;com.here.android.mpa.common.GeoCoordinate&gt;"
+          jni-type="Ljava/util/List&lt;Lcom/here/android/mpa/common/GeoCoordinate;&gt;;" />
+      </method>
+    </class>
+  </add-node>-->
+</metadata>

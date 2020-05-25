@@ -5,6 +5,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xamarin.iOS.HEREMaps", "Xam
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HereMapsTestApp", "HereMapsTestApp\HereMapsTestApp.csproj", "{6C7CD727-5079-4589-BC71-EC4F2CA8933A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xamarin.Android.HEREMaps", "Xamarin.Android.HEREMaps\Xamarin.Android.HEREMaps.csproj", "{40093A7A-8C04-4860-AC69-9D97FA460A76}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,5 +41,17 @@ Global
 		{6C7CD727-5079-4589-BC71-EC4F2CA8933A}.Debug|iPhone.Build.0 = Debug|iPhone
 		{6C7CD727-5079-4589-BC71-EC4F2CA8933A}.Release|iPhone.ActiveCfg = Release|iPhone
 		{6C7CD727-5079-4589-BC71-EC4F2CA8933A}.Release|iPhone.Build.0 = Release|iPhone
+		{40093A7A-8C04-4860-AC69-9D97FA460A76}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{40093A7A-8C04-4860-AC69-9D97FA460A76}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{40093A7A-8C04-4860-AC69-9D97FA460A76}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{40093A7A-8C04-4860-AC69-9D97FA460A76}.Release|Any CPU.Build.0 = Release|Any CPU
+		{40093A7A-8C04-4860-AC69-9D97FA460A76}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{40093A7A-8C04-4860-AC69-9D97FA460A76}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
+		{40093A7A-8C04-4860-AC69-9D97FA460A76}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{40093A7A-8C04-4860-AC69-9D97FA460A76}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
+		{40093A7A-8C04-4860-AC69-9D97FA460A76}.Debug|iPhone.ActiveCfg = Debug|Any CPU
+		{40093A7A-8C04-4860-AC69-9D97FA460A76}.Debug|iPhone.Build.0 = Debug|Any CPU
+		{40093A7A-8C04-4860-AC69-9D97FA460A76}.Release|iPhone.ActiveCfg = Release|Any CPU
+		{40093A7A-8C04-4860-AC69-9D97FA460A76}.Release|iPhone.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
