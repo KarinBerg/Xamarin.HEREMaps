@@ -13,11 +13,11 @@ using Foundation;
 // Change them to the values specific to your project.
 
 [assembly: AssemblyTitle("NativeLibrary")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Xamarin.iOS Binding library for HEREMaps Premium SDK")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("NativeLibrary")]
-[assembly: AssemblyCopyright("Copyright ©  2017")]
+[assembly: AssemblyProduct("Xamarin.iOS.HEREMaps")]
+[assembly: AssemblyCopyright("Copyright © 2020")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

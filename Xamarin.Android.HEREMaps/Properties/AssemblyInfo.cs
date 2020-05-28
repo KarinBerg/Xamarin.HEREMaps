@@ -7,11 +7,11 @@ using Android.App;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("Xamarin.Android.HEREMaps")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Xamarin.Android Binding library for HEREMaps Premium SDK")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("Xamarin.Android.HEREMaps")]
-[assembly: AssemblyCopyright("Copyright © 2018")]
+[assembly: AssemblyCopyright("Copyright © 2020")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 [assembly: ComVisible(false)]
