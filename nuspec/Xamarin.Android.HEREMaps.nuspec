@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package>
+  <metadata>
+    <id>Xamarin.Android.HEREMaps</id>
+    <version>$version$</version>
+    <title>Xamarin.Android.HEREMaps</title>
+    <authors>Karin Berg</authors>
+    <license>https://github.com/KarinBerg/Xamarin.HEREMaps/blob/master/LICENSE</license>
+    <projectUrl>https://github.com/KarinBerg/Xamarin.HEREMaps</projectUrl>
+    <icon>https://github.com/KarinBerg/Xamarin.HEREMaps/blob/master/docs/icons/HERE_logo.png?raw=true</icon>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Xamarin.Android.HEREMaps binding library.</description>    
+    <tags>xamarin, HEREMaps</tags>
+  </metadata>
+  <files>
+    <file src="Xamarin.Android.HEREMaps/bin/Release/Xamarin.Android.HEREMaps.dll" target="lib/MonoAndroid100" />
+  </files>
+</package>
