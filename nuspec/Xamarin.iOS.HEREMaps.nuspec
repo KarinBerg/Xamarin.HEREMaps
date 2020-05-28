@@ -5,9 +5,8 @@
     <version>$version$</version>
     <title>Xamarin.iOS.HEREMaps</title>
     <authors>Karin Berg</authors>
-    <license>https://github.com/KarinBerg/Xamarin.HEREMaps/blob/master/LICENSE</license>
+    <license type="expression">MIT</license>
     <projectUrl>https://github.com/KarinBerg/Xamarin.HEREMaps</projectUrl>
-    <icon>https://github.com/KarinBerg/Xamarin.HEREMaps/blob/master/docs/icons/HERE_logo.png?raw=true</icon>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Xamarin.iOS.HEREMaps binding library.</description>    
     <tags>xamarin, HEREMaps</tags>
