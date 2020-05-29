@@ -4,8 +4,6 @@
 var target = Argument("target", "Default");
 
 // Environment
-var isRunningOnWindows = IsRunningOnWindows();
-
 var solutionFile = new FilePath("Xamarin.HEREMaps.sln");
 var androidLibrary = GetFiles("./Xamarin.Android.HEREMaps/*.csproj").First();
 var iOSLibrary = GetFiles("./Xamarin.iOS.HEREMaps/*.csproj").First();
@@ -18,7 +16,6 @@ var version = CreateSemVer(1, 0, 0);
 Setup((context) =>
 {
     Information ("Starting CAKE script ...");
-	Information ("Running on Windows: {0}", isRunningOnWindows);
 	Information("Configuration: {0}", configuration);
 });
 
@@ -30,13 +27,11 @@ Teardown(context =>
 TaskSetup(setupContext =>
 {
     var message = string.Format("Task: {0}", setupContext.Task.Name);
-    // custom logging
 });
 
 TaskTeardown(teardownContext =>
 {
     var message = string.Format("Task: {0}", teardownContext.Task.Name);
-    // custom logging
 });
 
 Task("Clean")
