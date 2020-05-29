@@ -4,6 +4,11 @@ Xamarin Binding library to make HEREMaps Premium Edition SDKs (v.3.15) available
 **Requirements:**<br>
 You need to register at https://developer.here.com and get a license for the HEREMaps Premium Edition SDKs.
 
+**Compatibility:**<br>
+iOS: HERE iOS SDK supports iOS 12 or above. iOS 12 is recommended for optimal operation.
+<br><br>
+Android: Minimum supported API Level of the used HEREMaps SDK is 17 which corresponds Android 4.2.x "Jelly Bean". (android:minSdkVersion)
+
 <p align="center">
 <img src="docs/icons/HERE_logo.png" width="300">
 </p>
