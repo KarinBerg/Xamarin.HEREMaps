@@ -54,7 +54,7 @@
     <TransformFile Include="Transforms\EnumMethods.xml" />
   </ItemGroup>
   <ItemGroup>
-    <LibraryProjectZip Include="Jars\HERE-sdk.aar" />
+    <LibraryProjectZip Include="Jars\HERE-sdk-v315.aar" />
   </ItemGroup>
   <ItemGroup>
     <ReferenceJar Include="Jars\gson-2.8.5.jar" />
