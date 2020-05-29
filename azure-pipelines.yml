@@ -21,7 +21,7 @@ steps:
 
 - task: NuGetToolInstaller@1
 
-- script: build.sh
+- script: $(System.DefaultWorkingDirectory)/build.sh
   displayName: 'Execute the build script'
   enabled: true
 
