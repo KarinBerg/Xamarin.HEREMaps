@@ -2,13 +2,13 @@
 Xamarin Binding library to make HEREMaps Premium Edition SDKs (v.3.15) available for Xamarin.iOS and Xamarin.Android Apps.
 
 **Requirements:**<br>
-You need to register at https://developer.here.com and get a license key for the HEREMaps Premium Edition SDKs.
+You need to register at https://developer.here.com and get a license for the HEREMaps Premium Edition SDKs.
 
 <p align="center">
 <img src="docs/icons/HERE_logo.png" width="300">
 </p>
 
-| Binding                                     | Sample                                            | NuGet                                     |
+| Binding project                                     | Sample project                                            | NuGet                                     |
 |---------------------------------------------|---------------------------------------------------|-------------------------------------------|
 | [Xamarin.Android.HereMaps][binding-android] | [Xamarin.Android.HereMapsTestApp][android-sample] | [![NuGet](https://img.shields.io/nuget/v/Xamarin.Android.HereMaps.svg?label=NuGet)](https://www.nuget.org/packages/Xamarin.Android.HereMaps/) |
 | [Xamarin.iOS.HereMaps][binding-ios]         | [Xamarin.iOS.HereMapsTestApp][ios-sample]         | [![NuGet](https://img.shields.io/nuget/v/Xamarin.iOS.HereMaps.svg?label=NuGet)](https://www.nuget.org/packages/Xamarin.iOS.HereMaps/)         |
@@ -26,3 +26,8 @@ You need to register at https://developer.here.com and get a license key for the
 
 ### License
 [MIT Licence](LICENSE) 
+
+
+### Binding documentation
+iOS Binding: [notes](NativeLibraries/ios-binding-notes.md)<br>
+Android: [notes](Xamarin.Android.HEREMaps/android-binding-notes.md)<br>
