@@ -4,7 +4,9 @@ Xamarin Binding library to make HEREMaps Premium Edition SDKs (v.3.15) available
 **Requirements:**<br>
 You need to register at https://developer.here.com and get a license key for the HEREMaps Premium Edition SDKs.
 
-![HEREMaps Image](docs/icons/HERE_logo.png)
+<p align="center">
+<img src="docs/icons/HERE_logo.png" width="300">
+</p>
 
 | Binding                                     | Sample                                            | NuGet                                     |
 |---------------------------------------------|---------------------------------------------------|-------------------------------------------|
