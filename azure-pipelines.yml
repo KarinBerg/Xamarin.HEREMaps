@@ -1,4 +1,5 @@
 # Xamarin.iOS
+
 # Build a Xamarin.iOS project.
 # Add steps that install certificates, test, sign, and distribute an app, save build artifacts, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/xamarin
@@ -18,7 +19,7 @@ steps:
   displayName: 'Select the Xamarin SDK version with Mono 6.10.0'
   enabled: true
 
-- script: ./build.sh
+- script: build.sh
   displayName: 'Execute the build script'
   enabled: true
 
