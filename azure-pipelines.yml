@@ -19,15 +19,11 @@ steps:
   displayName: 'Select the Xamarin SDK version with Mono 6.10.0'
   enabled: true
 
-#- script: build.sh
-#  displayName: 'Execute the build script'
-#  enabled: true
+- task: NuGetToolInstaller@1
 
-- task: Bash@3
-  inputs:
-    filePath: 'build.sh'
-
-#- task: NuGetToolInstaller@1
+- script: build.sh
+  displayName: 'Execute the build script'
+  enabled: true
 
 #- task: NuGetCommand@2
 #  inputs:
