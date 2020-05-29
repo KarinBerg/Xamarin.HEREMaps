@@ -8,7 +8,8 @@
     <license type="expression">MIT</license>
     <projectUrl>https://github.com/KarinBerg/Xamarin.HEREMaps</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>Xamarin.Android.HEREMaps binding library.</description>    
+    <description>Xamarin.Android.HEREMaps binding library.</description>
+    <copyright>Copyright 2020</copyright>
     <tags>xamarin, HEREMaps</tags>
   </metadata>
   <files>
