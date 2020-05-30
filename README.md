@@ -37,5 +37,5 @@ Target SDK version is 29 which corresponds Android 10.0 "Q" (android:targetSdkVe
 
 
 ### Binding documentation
-iOS Binding: [notes](NativeLibraries/ios-binding-notes.md)<br>
+iOS Binding: [notes](Xamarin.iOS.HEREMaps/ios-binding-notes.md)<br>
 Android: [notes](Xamarin.Android.HEREMaps/android-binding-notes.md)<br>

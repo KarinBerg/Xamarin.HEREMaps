@@ -10,9 +10,8 @@ So NMAKit_mod.h lists all the header files with should be bind by Sharpie.
 1. Generate ApiDefinition.cs and StructsAndEnums.cs:
 - Open a terminal
 - cd `HERESDK-Premium/framework/NMAKit.framework/Headers/`
-- check available iOS sdks with `sharpie xcode -sdks`. If needed SDK is missing download xCode version from https://developer.apple.com/download/more/ and use 'sudo xcode-select -s /Applications/Xcode3_11.app' to use this xCode version.
-- `sharpie bind -o . -n Xamarin.HEREMaps.iOS —sdk=iphoneos13.1 -scope . NMAKit_mod.h`
-
+- check available iOS sdks with `sharpie xcode -sdks`. If needed SDK is missing download xCode version from https://developer.apple.com/download/more/ and use 'sudo xcode-select -s /Applications/Xcode11_1.app' to use this xCode version.
+- `sharpie bind -output . -sdk iphoneos13.1 -namespace Xamarin.HEREMaps.iOS -scope . NMAKit_mod.h`
 2. Adjust ApiDefinition.cs and Structs.cs:
 - Copy content from generated file "ApiDefinition.cs" into "ApiDefinition.cs" of the iOS binding project
 - Copy content from generated file "StructsAndEnums.cs" into "Structs.cs" of the iOA binding project
