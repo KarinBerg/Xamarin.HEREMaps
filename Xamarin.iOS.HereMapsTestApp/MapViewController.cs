@@ -31,10 +31,13 @@ namespace HereMapsTestApp
                 mapView.ZoomLevel = 5;
                 mapView.WeakGestureDelegate = this;
 
-                // Add a test markers
-                mapView.AddMapObject(new VehicleMapMarker(new NMAGeoCoordinates(50.9605738, 7.7703383), "Testvehicle 1"));
-                mapView.AddMapObject(new VehicleMapMarker(new NMAGeoCoordinates(49.8022486, 8.6021228), "Testvehicle 2"));
-                mapView.AddMapObject(new VehicleMapMarker(new NMAGeoCoordinates(48.712405, 9.3061532), "Testvehicle 3"));
+                NMAClusterLayer cl = new NMAClusterLayer();
+
+                cl.AddMarker(new VehicleMapMarker(new NMAGeoCoordinates(50.9605738, 7.7703383), "Testvehicle 1"));
+                cl.AddMarker(new VehicleMapMarker(new NMAGeoCoordinates(49.8022486, 8.6021228), "Testvehicle 2"));
+                cl.AddMarker(new VehicleMapMarker(new NMAGeoCoordinates(48.712405, 9.3061532), "Testvehicle 3"));
+
+                mapView.AddClusterLayer(cl);
             });
         }
 
