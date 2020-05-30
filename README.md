@@ -31,11 +31,17 @@ Target SDK version is 29 which corresponds Android 10.0 "Q" (android:targetSdkVe
 [android-sample]: Xamarin.Android.HereMapsTestApp/
 [ios-sample]: Xamarin.iOS.HereMapsTestApp/
 
-
 ### License
 [MIT Licence](LICENSE) 
-
 
 ### Binding documentation
 iOS Binding: [notes](Xamarin.iOS.HEREMaps/ios-binding-notes.md)<br>
 Android: [notes](Xamarin.Android.HEREMaps/android-binding-notes.md)<br>
+
+### Git hints
+Because the iOS and Android native HereMaps libraries (NMAKit and HERE-sdk.zip) are larger than 100MB, I have to use Git Large File Storage (Git LFS) to add them to the github repository.
+Type `git lfs ls-files`to see which files are managed by Git LFS.
+Type `git lfs track`to see the tracked patterns
+Type `git untrack "*.gif"` to configure Git LFS to stop tracking GIF files
+Type `git track "*gif"` to configure Git LFS to start tracking GIF files
+See https://git-lfs.github.com for more info about Git Large File Storage
