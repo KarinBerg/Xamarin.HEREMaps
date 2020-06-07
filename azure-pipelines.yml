@@ -21,19 +21,18 @@ steps:
 - bash: echo '##vso[task.setvariable variable=MD_APPLE_SDK_ROOT;]'/Applications/Xcode_$(XCODE_VERSION).app;sudo xcode-select --switch /Applications/Xcode_$(XCODE_VERSION).app/Contents/Developer
   displayName: Switch to the latest Xcode
 
-#- task: NuGetToolInstaller@1
-
 - script: sudo $(System.DefaultWorkingDirectory)/build.sh
   displayName: 'Execute the build script'
   enabled: true
+- task: CopyFiles@2
+  inputs:
+    SourceFolder: 'artifacts'
+    Contents: '**'
+    TargetFolder: '$(Build.ArtifactStagingDirectory)'
+    CleanTargetFolder: true
 
-#- task: NuGetCommand@2
-#  inputs:
-#    restoreSolution: '**/*.sln'
-
-#- task: XamariniOS@2
-#  inputs:
-#    solutionFile: '**/*.sln'
-#    configuration: 'Release'
-#    buildForSimulator: false
-#    packageApp: true
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    ArtifactName: 'Nugets'
+    publishLocation: 'Container'
