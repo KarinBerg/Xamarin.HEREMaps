@@ -125,7 +125,7 @@ Task("UploadNuGet")
 			MaxAttempts = 3,
 			ForcePush = false
 		};
-		PublishNuGets("https://api.nuget.org/v3/index.json", "oy2gagclsrrkwkprf5japznc257uihku7ooxp2zuvtwoou", settings, new string[] {"artifacts/*.nupkg"});
+		PublishNuGets("https://api.nuget.org/v3/index.json", "YOUR API KEY", settings, new string[] {"artifacts/*.nupkg"});
 	});
 
 Task("Default")
