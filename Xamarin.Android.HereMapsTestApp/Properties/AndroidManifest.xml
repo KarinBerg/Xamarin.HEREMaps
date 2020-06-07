@@ -4,7 +4,7 @@
           android:versionName="1.0" 
           package="de.pepperapps.heremapstestapp">
 	
-    <uses-sdk android:minSdkVersion="16" android:targetSdkVersion="29" />
+    <uses-sdk android:minSdkVersion="17" android:targetSdkVersion="29" />
     
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
