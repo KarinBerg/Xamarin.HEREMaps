@@ -15,6 +15,9 @@ pool:
   vmImage: 'macos-latest'
 
 steps:
+- checkout: self  # self represents the repo where the initial Pipelines YAML file was found
+  lfs: true
+
 # make sure to select the correct Xamarin and mono (See https://go.microsoft.com/fwlink/?linkid=871629)
 - bash: sudo $AGENT_HOMEDIRECTORY/scripts/select-xamarin-sdk.sh $(MONO_VERSION)
   displayName: Switch to the latest Xamarin SDK
