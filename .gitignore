@@ -353,3 +353,4 @@ MigrationBackup/
 # CakeBuild stuff
 tools
 !tools/packages.config
+nuspec/LICENSE.txt

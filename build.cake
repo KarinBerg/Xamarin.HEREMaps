@@ -9,9 +9,14 @@ var androidLibrary = GetFiles("./Xamarin.Android.HEREMaps/*.csproj").First();
 var iOSLibrary = GetFiles("./Xamarin.iOS.HEREMaps/*.csproj").First();
 var artifactsDirectory = new DirectoryPath("artifacts");
 var configuration = "Release";
+var sourceLicenseFile = new FilePath("./LICENSE");
+var targetLicenseFile = new FilePath("./nuspec/LICENSE.txt");
 
-// Versioning. Used for all the packages and assemblies for now.
-var version = CreateSemVer(1, 0, 0);
+// Versioning. Used for all the packages and assemblies for now. 
+// The first three digits corresponds to the HereMaps SDK version whereby the third and the fourth of the hereMaps version is compined to one figure. 
+// e.g. HERE SDK version v3.15.2.92 => 2.15.292
+// see here for Nuget versioning info: https://docs.microsoft.com/de-de/nuget/concepts/package-versioning
+var version = CreateSemVer(3, 15, 292, "alpha", "1");
 
 Setup((context) =>
 {
@@ -78,8 +83,12 @@ Task("Build")
 	.IsDependentOn("Build-iOS-Library")
 	.Does(() => {});
 
-Task ("NuGet")
+Task("CopyLicense")
 	.IsDependentOn("Build")
+	.Does(() => { CopyFile(sourceLicenseFile, targetLicenseFile);});
+
+Task("NuGet")
+	.IsDependentOn("CopyLicense")
 	.Does (() =>
 	{
 		Information("Nuget version: {0}", version);

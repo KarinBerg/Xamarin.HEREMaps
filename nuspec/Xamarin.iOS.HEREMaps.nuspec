@@ -15,6 +15,9 @@
     <copyright>Copyright 2020</copyright> 
     <tags>xamarin, HEREMaps</tags>
     <releaseNotes>First version of the binding library</releaseNotes>
+    <dependencies>
+      <group targetFramework="Xamarin.iOS10" />
+    </dependencies>
   </metadata>
   <files>
     <file src="Xamarin.iOS.HEREMaps/bin/Release/Xamarin.iOS.HEREMaps.dll" target="lib\Xamarin.iOS10" />
