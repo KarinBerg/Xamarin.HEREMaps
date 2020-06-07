@@ -28,6 +28,9 @@ So NMAKit_mod.h lists all the header files with should be bind by Sharpie.
 
 # Official documentation of Binding Objective-C:
 https://docs.microsoft.com/en-us/xamarin/cross-platform/macios/binding/?context=xamarin/ios
+https://docs.microsoft.com/en-us/xamarin/cross-platform/macios/binding/binding-types-reference?context=xamarin/ios
+https://docs.microsoft.com/en-us/xamarin/ios/troubleshooting/mtouch-errors#MT5214
+https://github.com/xamarin/xamarin-macios/tree/master/docs/website
 
 # Helpful links:
 https://insanelab.com/blog/mobile-development/advanced-xamarin-bindings-case-study-deep-dive-into-ios-part-ii/
