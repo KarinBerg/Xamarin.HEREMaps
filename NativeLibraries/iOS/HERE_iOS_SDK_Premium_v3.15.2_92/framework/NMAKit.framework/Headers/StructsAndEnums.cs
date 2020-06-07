@@ -1,8 +1,75 @@
 using System;
+using System.Runtime.InteropServices;
+using NMAKit;
 using ObjCRuntime;
 
 namespace Xamarin.HEREMaps.iOS
 {
+	[Native]
+	public enum NMAARError : nuint
+	{
+		None = 0,
+		InvalidOperation = 1,
+		InvalidParameters = 2,
+		OperationNotAllowed = 3,
+		CameraUnavailable = 4,
+		SensorsUnavailable = 5,
+		Stopped = 6,
+		CameraAccessNotAuthorized = 7
+	}
+
+	[Native]
+	public enum NMAARProjectionType : nuint
+	{
+		NearFar,
+		Direct3D,
+		Horizontal,
+		Map,
+		Global
+	}
+
+	[StructLayout (LayoutKind.Sequential)]
+	public struct NMAVector3d
+	{
+		public nfloat x;
+
+		public nfloat y;
+
+		public nfloat z;
+	}
+
+	static class CFunctions
+	{
+		// BOOL NMAVector3dEqualToVector (const NMAVector3d v1, const NMAVector3d v2);
+		[DllImport ("__Internal")]
+		[Verify (PlatformInvoke)]
+		static extern bool NMAVector3dEqualToVector (NMAVector3d v1, NMAVector3d v2);
+
+		// NMAVector3d NMAVector3dMake (CGFloat x, CGFloat y, CGFloat z);
+		[DllImport ("__Internal")]
+		[Verify (PlatformInvoke)]
+		static extern NMAVector3d NMAVector3dMake (nfloat x, nfloat y, nfloat z);
+
+		// BOOL NMAVector3dValid (const NMAVector3d v1);
+		[DllImport ("__Internal")]
+		[Verify (PlatformInvoke)]
+		static extern bool NMAVector3dValid (NMAVector3d v1);
+	}
+
+	[Native]
+	public enum NMAARModelObjectShadingMode : nuint
+	{
+		FlatTextured = 0,
+		DiffuseTextured = 1
+	}
+
+	[Native]
+	public enum NMAARBillboardObjectOrientation : nuint
+	{
+		Fixed = 0,
+		Billboard = 1
+	}
+
 	[Native]
 	public enum NMALayoutPosition : nuint
 	{
@@ -112,306 +179,6 @@ namespace Xamarin.HEREMaps.iOS
 	}
 
 	[Native]
-	public enum NMATrafficSeverity : nuint
-	{
-		Undefined = 0,
-		Normal,
-		High,
-		VeryHigh,
-		Blocking
-	}
-
-	[Native]
-	public enum NMATrafficNotificationType : nuint
-	{
-		Undefined = 0,
-		OnRoute,
-		OnHighway,
-		NearStart,
-		NearStopover,
-		NearDestination
-	}
-
-	[Native]
-	public enum NMAMapGestureType : nint
-	{
-		DoubleTap = 1 << 0,
-		LongPress = 1 << 1,
-		Pan = 1 << 2,
-		Pinch = 1 << 3,
-		Rotate = 1 << 4,
-		Tap = 1 << 5,
-		TwoFingerPan = 1 << 6,
-		TwoFingerTap = 1 << 7,
-		All = 255
-	}
-
-	[Native]
-	public enum NMAProjectionType : nint
-	{
-		Mercator,
-		Globe
-	}
-
-	[Native]
-	public enum NMAMapAnimation : nuint
-	{
-		Bow,
-		Linear,
-		None,
-		Rocket
-	}
-
-	[Native]
-	public enum NMAMapEvent : nint
-	{
-		GeoCenterChanged = 1 << 0,
-		ZoomLevelChanged = 1 << 1,
-		OrientationChanged = 1 << 2,
-		TiltChanged = 1 << 3,
-		TransformationBegan = 1 << 4,
-		TransformationEnded = 1 << 5,
-		GestureBegan = 1 << 6,
-		GestureEnded = 1 << 7,
-		AnimationBegan = 1 << 8,
-		AnimationEnded = 1 << 9,
-		MarkerDragBegan = 1 << 10,
-		MarkerDragged = 1 << 11,
-		MarkerDragEnded = 1 << 12,
-		All = 65535
-	}
-
-	[Native]
-	public enum NMAMapTransitDisplayMode : nint
-	{
-		Nothing,
-		StopAndAccess,
-		Everything
-	}
-
-	[Native]
-	public enum NMATrafficLayer : nint
-	{
-		Flow = 1,
-		Incidents = 2,
-		OnRoute = 4,
-		All = 255
-	}
-
-	[Native]
-	public enum NMAMapLayerCategory : nint
-	{
-		Land,
-		Water,
-		LabelOcean,
-		LabelSea,
-		LabelWaterOther,
-		Beach,
-		Woodland,
-		Desert,
-		Glacier,
-		LabelBeach,
-		LabelWoodland,
-		LabelDesert,
-		LabelGlacier,
-		AirportArea,
-		AmusementPark,
-		AnimalPark,
-		Builtup,
-		Cemetery,
-		GolfCourse,
-		HarborArea,
-		HospitalCampus,
-		IndustrialComplex,
-		MilitaryBase,
-		NationalPark,
-		NativeReservation,
-		OutlineMilitaryBase,
-		OutlineNationalPark,
-		OutlineNativeReservation,
-		CityPark,
-		PedestrianArea,
-		Railyard,
-		ShoppingComplex,
-		SportsComplex,
-		UniversityCampus,
-		LabelAirportArea,
-		LabelAmusementPark,
-		LabelAnimalPark,
-		LabelCemetery,
-		LabelGolfCourse,
-		LabelHarborArea,
-		LabelHospitalCampus,
-		LabelIndustrialComplex,
-		LabelMilitaryBase,
-		LabelNationalPark,
-		LabelNativeReservation,
-		LabelCityPark,
-		LabelPedestrianArea,
-		LabelRailyard,
-		LabelShoppingComplex,
-		LabelSportsComplex,
-		LabelUniversityCampus,
-		StreetCategory0,
-		StreetCategory1,
-		StreetCategory2,
-		StreetCategory3,
-		StreetCategory4,
-		StreetCategoryPedestrian,
-		StreetCategoryWalkway,
-		LabelStreetCategory0,
-		LabelStreetCategory1,
-		LabelStreetCategory2,
-		LabelStreetCategory3,
-		LabelStreetCategory4,
-		LabelStreetCategoryPedestrian,
-		LabelStreetCategoryWalkway,
-		RoadsignIcon,
-		ExitSign,
-		BorderCountry,
-		BorderState,
-		BorderRegional,
-		BorderBuiltup,
-		BorderLineOfControl,
-		NeighborhoodArea,
-		LabelContinent = 74,
-		LabelMajorCountry,
-		LabelMinorCountry,
-		LabelState,
-		LabelStateAbbreviation,
-		LabelCityCapital,
-		LabelCityStateCapital,
-		LabelCityOther,
-		LabelNeighborhoodArea,
-		PublicTransitLine,
-		LabelPublicTransitLine,
-		IconPublicTransitStation,
-		LabelPublicTransitStation,
-		Relief,
-		Background,
-		LabelMountain,
-		IconMountain,
-		LabelIsland,
-		Building,
-		LabelBuilding,
-		PointAddress,
-		PedestrianFeature,
-		Railroad,
-		Ferry,
-		LabelFerry,
-		PoiIcon,
-		PoiLabel,
-		Count,
-		None
-	}
-
-	[Native]
-	public enum NMAMapPoiCategory : nint
-	{
-		AirLineAccess,
-		AmusementPark,
-		CarDealer,
-		Casino,
-		Cinema,
-		Company,
-		ConcertHall,
-		Congress,
-		Courthouse,
-		CulturalCentre,
-		ExhibitionCentre,
-		GolfCourse,
-		GovernmentOffice,
-		HolidayPark,
-		Museum,
-		Opera,
-		ParkingGarage,
-		PetrolStation,
-		PlaceOfWorship,
-		PostOffice,
-		RentACarFacility,
-		RestArea,
-		Restaurant,
-		Shop,
-		ShoppingCentre,
-		Stadium,
-		Theatre,
-		TouristAttraction,
-		TouristInformationCentre,
-		University,
-		Zoo,
-		Library,
-		Camping,
-		BarDisco,
-		Embassy,
-		FerryTerminal,
-		FrontierCrossing,
-		Hospital,
-		Hotel,
-		ParkingArea,
-		Police,
-		RailwayStation,
-		MetroStation,
-		Airport,
-		MountainPass,
-		MountainPeak,
-		Carrepair,
-		CashDispenser,
-		ParkRecreation,
-		Pharmacy,
-		Beach,
-		BusStation = 57,
-		Education = 106,
-		ResidentialArea = 117,
-		EVChargingStation = 196,
-		NightClub = 203,
-		PublicToilet = 204,
-		Laundry = 207,
-		TaxiStand = 216,
-		RailwayAccess = 217,
-		BarsCafes = 218,
-		Parking = 219,
-		SportOutdoor = 220,
-		MetroAccess = 221,
-		AutMetroAccess = 222,
-		AutMetroStop = 223,
-		BelMetroAccess = 224,
-		BelMetroStop = 225,
-		CzeMetroAccess = 226,
-		CzeMetroStop = 227,
-		DenMetroAccess = 228,
-		DenMetroStop = 229,
-		FinMetroAccess = 230,
-		FinMetroStop = 231,
-		FraMetroAccess = 232,
-		FraMetroStop = 233,
-		FraRerAccess = 234,
-		FraRerStop = 235,
-		DeuMetroAccess = 236,
-		DeuMetroStop = 237,
-		DeuSbahnAccess = 238,
-		DeuSbahnStop = 239,
-		ItaMetroAccess = 240,
-		ItaMetroStop = 241,
-		NorMetroAccess = 242,
-		NorMetroStop = 243,
-		PrtMetroAccess = 244,
-		PrtMetroStop = 245,
-		EspBarcelonaMetroAccess = 246,
-		EspBarcelonaMetroStop = 247,
-		EspCercaniasMetroAccess = 248,
-		EspCercaniasMetroStop = 249,
-		EspMadridMetroAccess = 250,
-		EspMadridMetroStop = 251,
-		SweMetroAccess = 252,
-		SweMetroStop = 253,
-		GbrGlasgowMetroAccess = 254,
-		GbrGlasgowMetroStop = 255,
-		GbrLondonMetroAccess = 256,
-		GbrLondonMetroStop = 257,
-		All = 258
-	}
-
-	[Native]
 	public enum NMAMapObjectType : nuint
 	{
 		Point,
@@ -428,40 +195,10 @@ namespace Xamarin.HEREMaps.iOS
 	}
 
 	[Native]
-	public enum NMASafetySpotType : nuint
+	public enum NMALineCapStyle : nuint
 	{
-		Undefined,
-		SpeedCamera,
-		RedLightCamera,
-		SpeedRedLightCamera
-	}
-
-	[Native]
-	public enum NMAMapTileRequestStatus : nuint
-	{
-		Unitialized,
-		Pending,
-		Failed,
-		Complete
-	}
-
-	[Native]
-	public enum NMAPositionIndicatorType : nuint
-	{
-		Raw,
-		MapMatched,
-		Current
-	}
-
-	[Native]
-	public enum NMAVenue3dDeselectEvent : nuint
-	{
-		MapMoved,
-		MapZoomedOut,
-		MapTappedOutside,
-		LayerDisabled,
-		SelectedOther,
-		Manual
+		Butt,
+		Round
 	}
 
 	[Native]
@@ -487,155 +224,28 @@ namespace Xamarin.HEREMaps.iOS
 	}
 
 	[Native]
-	public enum NMARoadElementAttribute : nuint
+	public enum NMAAudioOutputEvent : nint
 	{
-		Undefined = 0,
-		DirectionNoCars = 0,
-		DirectionForward = 1,
-		DirectionBackward = 2,
-		DirectionBoth = 3,
-		DirtRoad = 256,
-		UsageFeeRequired = 512,
-		Carpool = 1024,
-		Urban = 2048,
-		Tollroad = 4096,
-		NoThroughTraffic = 8192,
-		Tunnel = 16384,
-		Sliproad = 262144,
-		Highway = 524288,
-		UnderConstruction = 1048576,
-		HasLaneDir = 2097152,
-		HasLaneExit = 4194304,
-		Ferry = 8388608,
-		RailFerry = 16777216,
-		DirectionNoTruck = 33554432,
-		DirectionTruckForward = 67108864,
-		DirectionTruckBackward = 134217728,
-		DirectionTruckBoth = 201326592,
-		SchoolZone = 268435456
+		Began,
+		Skipped,
+		Ended
 	}
 
 	[Native]
-	public enum NMARoadElementType : nuint
+	public enum NMAAudioOutputSource : nint
 	{
-		Undefined = 0,
-		Motorway,
-		MultiCarriageway,
-		SingleCarriageway,
-		Roundabout,
-		Sliproad,
-		PedestrianZone,
-		PedestrianWalkway,
-		ServiceAccess,
-		PedestrianOnly
-	}
-
-	[Native]
-	public enum NMARoadElementPluralType : nuint
-	{
-		None = 0,
-		Maneuver,
-		Connector,
-		Indeterminate
-	}
-
-	[Native]
-	public enum NMAVenue3dSpaceType : nuint
-	{
-		General,
-		Facility
-	}
-
-	[Native]
-	public enum NMAVenue3dBaseLocationType : nuint
-	{
-		Space,
-		Outdoor,
-		Level,
-		Other
-	}
-
-	[Native]
-	public enum NMAVenue3dNavigationState : nuint
-	{
-		Idle = 0,
-		Running,
-		Paused
-	}
-
-	[Native]
-	public enum NMAVenue3dTrackingTilt : nuint
-	{
-		NMAVenue3dTrackingTilt2D,
-		NMAVenue3dTrackingTilt3D,
-		Custom
-	}
-
-	[Native]
-	public enum NMAVenue3dTrackingMode : nuint
-	{
-		Follow,
-		NorthUp,
-		FreeRotation
-	}
-
-	[Native]
-	public enum NMAVenue3dCombinedNavigationState : nuint
-	{
-		Idle = 0,
-		Running,
-		Simulating,
-		Paused
-	}
-
-	[Native]
-	public enum NMAVenue3dCombinedNavigationType : nuint
-	{
-		None = 0,
-		Indoor,
-		Link,
-		Outdoor
-	}
-
-	[Native]
-	public enum NMARoutingError : nuint
-	{
-		None = 0,
 		Unknown,
-		OutOfMemory,
-		InvalidParameters,
-		InvalidOperation,
-		GraphDisconnected,
-		GraphDisconnectedCheckOptions,
-		NoStartPoint,
-		NoEndPoint,
-		NoEndPointCheckOptions,
-		CannotDoPedestrian,
-		RoutingCancelled,
-		ViolatesOptions,
-		RouteCorrupted,
-		InvalidCredentials,
-		InsufficientMapData,
-		NetworkCommunication,
-		UnsupportedMapVersion
+		User,
+		Guidance
 	}
 
 	[Native]
-	public enum NMAVenue3dRoutingError : nuint
+	public enum NMAAudioRoute : nuint
 	{
-		NoError,
-		Arguments,
-		Internal,
-		CoreMap,
-		Unknown
-	}
-
-	[Native]
-	public enum NMAVenue3dRouteSectionType : nuint
-	{
-		Venue,
-		Outdoor,
-		Link
+		Default = 0,
+		DeviceSpeaker,
+		BluetoothHFP,
+		BluetoothHFPPreferred
 	}
 
 	[Native]
@@ -676,6 +286,79 @@ namespace Xamarin.HEREMaps.iOS
 	{
 		Default = 0,
 		Fast
+	}
+
+	[Native]
+	public enum NMARouteDurationDetail : nuint
+	{
+		Accurate = 0,
+		BlockedRoad = 1 << 0,
+		CarPool = 1 << 1,
+		RestrictedTurn = 1 << 2
+	}
+
+	[Native]
+	public enum NMATrafficPenaltyMode : nint
+	{
+		Disabled = 0,
+		Optimal,
+		AvoidLongTermClosures
+	}
+
+	[Native]
+	public enum NMADrivingDirection : nuint
+	{
+		Both = 0,
+		Forward,
+		Backward
+	}
+
+	[Native]
+	public enum NMARouteError : nuint
+	{
+		InvalidParameter = 1,
+		NotSupported,
+		Unknown
+	}
+
+	[Native]
+	public enum NMARouteSerializationError : nuint
+	{
+		InvalidParameter,
+		MapVersionMismatch,
+		DataCorrupted,
+		TransportModeNotSupported,
+		Unknown
+	}
+
+	[Native]
+	public enum NMARouteInstructionsUnitSystem : nuint
+	{
+		Metric,
+		Imperial
+	}
+
+	[Native]
+	public enum NMARoutingError : nuint
+	{
+		None = 0,
+		Unknown,
+		OutOfMemory,
+		InvalidParameters,
+		InvalidOperation,
+		GraphDisconnected,
+		GraphDisconnectedCheckOptions,
+		NoStartPoint,
+		NoEndPoint,
+		NoEndPointCheckOptions,
+		CannotDoPedestrian,
+		RoutingCancelled,
+		ViolatesOptions,
+		RouteCorrupted,
+		InvalidCredentials,
+		InsufficientMapData,
+		NetworkCommunication,
+		UnsupportedMapVersion
 	}
 
 	[Native]
@@ -793,33 +476,296 @@ namespace Xamarin.HEREMaps.iOS
 	}
 
 	[Native]
-	public enum NMAVenue3dRouteActionType : nuint
+	public enum NMANavigationState : nuint
 	{
-		None,
-		Enter,
-		Exit
+		Idle = 0,
+		Running,
+		Paused
 	}
 
 	[Native]
-	public enum NMAVenue3dRouteLevelChangeType : nuint
+	public enum NMANavigationMode : nuint
 	{
-		None,
-		Up,
-		Down
+		None = 0,
+		TurnByTurn,
+		Tracking
 	}
 
 	[Native]
-	public enum NMAVenue3dRouteConnectorType : nuint
+	public enum NMAMapTrackingOrientation : nuint
 	{
-		Elevator,
-		Escalator,
-		Stairs,
-		Skywalk,
-		Shuttle,
-		MovingSidewalk,
-		Ramp,
-		OtherCategory,
-		NotConnector
+		Dynamic,
+		NorthUp
+	}
+
+	[Native]
+	public enum NMAMapTrackingTilt : nuint
+	{
+		NMAMapTrackingTilt2D,
+		NMAMapTrackingTilt3D,
+		Custom
+	}
+
+	[Native]
+	public enum NMAMeasurementSystem : nuint
+	{
+		Metric = 0,
+		Imperial,
+		ImperialUS
+	}
+
+	[Native]
+	public enum NMARealisticViewAspectRatio : nuint
+	{
+		NMARealisticView16x9 = 1,
+		NMARealisticView3x5 = 2,
+		NMARealisticView5x3 = 4,
+		NMARealisticView4x3 = 8
+	}
+
+	[Native]
+	public enum NMARealisticViewMode : nuint
+	{
+		Off,
+		Day,
+		Night
+	}
+
+	[Native]
+	public enum NMANavigationError : nuint
+	{
+		None,
+		GuidanceNotReady,
+		NotReady,
+		PositioningFailed,
+		OutOfMemory,
+		InvalidParameters,
+		InvalidOperation,
+		NotFound,
+		Aborted,
+		OperationNotAllowed,
+		InvalidCredentials,
+		PedestrianNavigationNotAvailable,
+		Unknown
+	}
+
+	[Native]
+	public enum NMANaturalGuidanceOption : nuint
+	{
+		None = 0,
+		TrafficLight = 1,
+		Landmark = 4
+	}
+
+	[Native]
+	public enum NMATrafficAvoidanceMode : nuint
+	{
+		Dynamic,
+		Manual,
+		Disabled
+	}
+
+	[Native]
+	public enum NMATrafficEnabledRoutingState : nuint
+	{
+		Off,
+		On,
+		NotAvailable
+	}
+
+	[Native]
+	public enum NMATTSOutputFormat : nuint
+	{
+		Raw = 0,
+		Nuance = 1
+	}
+
+	[Native]
+	public enum NMANavigationAudioEvent : nuint
+	{
+		NMANavigationAudioEventSafetySpot = 32
+	}
+
+	[Native]
+	public enum NMATextFormat : nuint
+	{
+		Html = 0,
+		Plain
+	}
+
+	[Native]
+	public enum NMARequestConnectivity : nuint
+	{
+		Default = 0,
+		Offline,
+		Online
+	}
+
+	[Native]
+	public enum NMAMapStyleConfigurationError : nuint
+	{
+		None = 0,
+		HERESDKAlreadyInitialized,
+		ConfigurationFile,
+		ResourceFile,
+		TrafficConfigurationFile,
+		CustomPreferenceConfigurationFile,
+		ConfigurationResourceFiles,
+		KeyIsNotSupported
+	}
+
+	[Native]
+	public enum NMADevicePositioningMethod : nuint
+	{
+		Gps,
+		SignificantChanges
+	}
+
+	[Native]
+	public enum NMAGeoPositionSource : nuint
+	{
+		Unknown = 0,
+		SystemLocation = 1,
+		Indoor = 2
+	}
+
+	[Native]
+	public enum NMAIndoorPositioningMode : nuint
+	{
+		None = 0,
+		Automatic,
+		Community,
+		Private
+	}
+
+	[Native]
+	public enum NMALocationTrackingMethod : nuint
+	{
+		None = 0,
+		Gps,
+		SignificantChanges
+	}
+
+	[Native]
+	public enum NMAMapMatchMode : nuint
+	{
+		Car,
+		Pedestrian,
+		Truck,
+		Scooter
+	}
+
+	[Native]
+	public enum NMAPositionLogType : nint
+	{
+		None = 0,
+		DataSource = 1 << 0,
+		Current = 1 << 1,
+		Raw = 1 << 2,
+		Matched = 1 << 3,
+		All = 255
+	}
+
+	[Native]
+	public enum NMARoadElementAttribute : nuint
+	{
+		Undefined = 0,
+		DirectionNoCars = 0,
+		DirectionForward = 1,
+		DirectionBackward = 2,
+		DirectionBoth = 3,
+		DirtRoad = 256,
+		UsageFeeRequired = 512,
+		Carpool = 1024,
+		Urban = 2048,
+		Tollroad = 4096,
+		NoThroughTraffic = 8192,
+		Tunnel = 16384,
+		Sliproad = 262144,
+		Highway = 524288,
+		UnderConstruction = 1048576,
+		HasLaneDir = 2097152,
+		HasLaneExit = 4194304,
+		Ferry = 8388608,
+		RailFerry = 16777216,
+		DirectionNoTruck = 33554432,
+		DirectionTruckForward = 67108864,
+		DirectionTruckBackward = 134217728,
+		DirectionTruckBoth = 201326592,
+		SchoolZone = 268435456
+	}
+
+	[Native]
+	public enum NMARoadElementType : nuint
+	{
+		Undefined = 0,
+		Motorway,
+		MultiCarriageway,
+		SingleCarriageway,
+		Roundabout,
+		Sliproad,
+		PedestrianZone,
+		PedestrianWalkway,
+		ServiceAccess,
+		PedestrianOnly
+	}
+
+	[Native]
+	public enum NMARoadElementPluralType : nuint
+	{
+		None = 0,
+		Maneuver,
+		Connector,
+		Indeterminate
+	}
+
+	[Native]
+	public enum NMASafetySpotType : nuint
+	{
+		Undefined,
+		SpeedCamera,
+		RedLightCamera,
+		SpeedRedLightCamera
+	}
+
+	[Native]
+	public enum NMATrafficEventSeverity : nuint
+	{
+		Undefined,
+		Normal,
+		High,
+		VeryHigh,
+		Blocking
+	}
+
+	[Native]
+	public enum NMATrafficRequestError : nint
+	{
+		None,
+		InvalidParameters,
+		InvalidOperation,
+		Unknown
+	}
+
+	[Native]
+	public enum NMATrafficSeverity : nuint
+	{
+		Undefined = 0,
+		Normal,
+		High,
+		VeryHigh,
+		Blocking
+	}
+
+	[Native]
+	public enum NMATrafficNotificationType : nuint
+	{
+		Undefined = 0,
+		OnRoute,
+		OnHighway,
+		NearStart,
+		NearStopover,
+		NearDestination
 	}
 
 	[Native]
@@ -878,102 +824,143 @@ namespace Xamarin.HEREMaps.iOS
 	}
 
 	[Native]
-	public enum NMARouteElementType : nint
+	public enum NMATransitType : nuint
 	{
-		Transit = 0,
-		Road,
-		Invalid
+		PublicBus,
+		TouristicBus,
+		IntercityBus,
+		ExpressBus,
+		MetroRail,
+		LightRail,
+		RegionalRail,
+		RegionalTrain,
+		IntercityTrain,
+		HighSpeedTrain,
+		Monorail,
+		Aerial,
+		Inclined,
+		Water,
+		Airline,
+		Unknown
 	}
 
 	[Native]
-	public enum NMATravelDirection : nuint
+	public enum NMATransitManagerError : nuint
 	{
-		Forward = 0,
-		Backward = 1
+		None,
+		Busy,
+		InvalidParameters,
+		NotFound,
+		Unknown
 	}
 
 	[Native]
-	public enum NMARouteDurationDetail : nuint
+	public enum NMATransitObjectType : nuint
 	{
-		Accurate = 0,
-		BlockedRoad = 1 << 0,
-		CarPool = 1 << 1,
-		RestrictedTurn = 1 << 2
+		Access,
+		Line,
+		Stop
 	}
 
 	[Native]
-	public enum NMATrafficPenaltyMode : nint
+	public enum NMAEHLinkDirection : nuint
 	{
-		Disabled = 0,
-		Optimal,
-		AvoidLongTermClosures
-	}
-
-	[Native]
-	public enum NMADrivingDirection : nuint
-	{
-		Both = 0,
 		Forward,
 		Backward
 	}
 
 	[Native]
-	public enum NMARouteError : nuint
+	public enum NMAEHLinkAllowedDirection : nuint
 	{
-		InvalidParameter = 1,
-		NotSupported,
+		Forward,
+		Backward,
+		Both,
+		None
+	}
+
+	[Native]
+	public enum NMAEHLinkFunctionalRoadClass : nuint
+	{
+		NMAEHLinkFunctionalRoadClass1,
+		NMAEHLinkFunctionalRoadClass2,
+		NMAEHLinkFunctionalRoadClass3,
+		NMAEHLinkFunctionalRoadClass4,
+		NMAEHLinkFunctionalRoadClass5
+	}
+
+	[Native]
+	public enum NMAEHLinkFormOfWay : nuint
+	{
+		Multidigitized,
+		SingleCarriage,
+		Sliproad,
+		RoundaboutCircle,
+		SpecialTrafficFigure,
+		PedestrianZone,
+		ServiceRoad
+	}
+
+	[Native]
+	public enum NMAEHMetaDataSideOfDriving : nuint
+	{
+		Right,
+		Left,
 		Unknown
 	}
 
 	[Native]
-	public enum NMARouteSerializationError : nuint
-	{
-		InvalidParameter,
-		MapVersionMismatch,
-		DataCorrupted,
-		TransportModeNotSupported,
-		Unknown
-	}
-
-	[Native]
-	public enum NMARouteInstructionsUnitSystem : nuint
+	public enum NMAEHMetaDataUnitSystem : nuint
 	{
 		Metric,
-		Imperial
+		Imperial,
+		Unknown
 	}
 
 	[Native]
-	public enum NMAWaypointType : nuint
+	public enum NMAFleetConnectivityErrorType : nuint
 	{
-		StopWaypoint,
-		ViaWaypoint
+		ServerError = 1,
+		ConnectionError = 2
 	}
 
 	[Native]
-	public enum NMAWaypointDirection : nuint
+	public enum NMAIsolineError : nuint
 	{
-		Any,
-		Positive,
-		Negative
+		None = 0,
+		Unknown,
+		OutOfMemory,
+		InvalidParameters,
+		InvalidOperation,
+		GraphDisconnected,
+		RoutingCancelled,
+		InvalidCredentials,
+		InsufficientMapData,
+		NetworkCommunication,
+		UnsupportedMapVersion
 	}
 
 	[Native]
-	public enum NMARoutingZoneType : nuint
+	public enum NMAIsolineQuality : nuint
 	{
-		Vignette = 0,
-		CongestionPricing = 1,
-		AdministrativeClass = 2,
-		Environmental = 3
+		Best,
+		Performance,
+		Balanced
 	}
 
 	[Native]
-	public enum NMARoadSide : nuint
+	public enum NMAIsolineRouterConnectivity : nuint
+	{
+		Default,
+		Offline,
+		Online
+	}
+
+	[Native]
+	public enum NMAIsolineRangeType : nuint
 	{
 		Undefined,
-		UnknownLeft,
-		UnknownRight,
-		Left,
-		Right
+		Distance,
+		Time
 	}
 
 	[Native]
@@ -2061,5 +2048,1176 @@ namespace Xamarin.HEREMaps.iOS
 		TruckLineCategory3Width,
 		TruckLineCategory4Width,
 		IntegerPropertyCount
+	}
+
+	[Native]
+	public enum NMALocationInfoField : nuint
+	{
+		PlaceName,
+		PlaceCategory,
+		PlacePhoneNumber,
+		ReferenceIdentifier,
+		ReferenceSource
+	}
+
+	[Native]
+	public enum NMAMapGestureType : nint
+	{
+		DoubleTap = 1 << 0,
+		LongPress = 1 << 1,
+		Pan = 1 << 2,
+		Pinch = 1 << 3,
+		Rotate = 1 << 4,
+		Tap = 1 << 5,
+		TwoFingerPan = 1 << 6,
+		TwoFingerTap = 1 << 7,
+		All = 255
+	}
+
+	[Native]
+	public enum NMAMapPackageInstallation : nuint
+	{
+		None = 0,
+		Implicit,
+		Explicit,
+		PartiallyInstalled
+	}
+
+	[Native]
+	public enum NMAMapDataGroup : nint
+	{
+		TruckAttributes = 12,
+		ScooterAttributes = 13,
+		LowRes3DLandmarks = 17,
+		Terrain3D = 18,
+		SimpleExtrudedBuildings = 20,
+		WorldwideExtendedPOI = 21,
+		WorldwidePointAddresses = 22,
+		LinkGDBIdPVId = 26,
+		PhoneticNames = 49,
+		RealisticViews16x9 = 50,
+		RealisticViews3x5 = 51,
+		RealisticViews4x3 = 52,
+		RealisticViews5x3 = 53,
+		Adas = 54
+	}
+
+	[Native]
+	public enum NMAMapLoaderResult : nuint
+	{
+		Success,
+		InvalidParameters,
+		OperationCancelled,
+		InitializationFailed,
+		ConnectionFailed,
+		SearchFailed,
+		InsufficientStorage
+	}
+
+	[Native]
+	public enum NMAProjectionType : nint
+	{
+		Mercator,
+		Globe
+	}
+
+	[Native]
+	public enum NMAMapAnimation : nuint
+	{
+		Bow,
+		Linear,
+		None,
+		Rocket
+	}
+
+	[Native]
+	public enum NMAMapEvent : nint
+	{
+		GeoCenterChanged = 1 << 0,
+		ZoomLevelChanged = 1 << 1,
+		OrientationChanged = 1 << 2,
+		TiltChanged = 1 << 3,
+		TransformationBegan = 1 << 4,
+		TransformationEnded = 1 << 5,
+		GestureBegan = 1 << 6,
+		GestureEnded = 1 << 7,
+		AnimationBegan = 1 << 8,
+		AnimationEnded = 1 << 9,
+		MarkerDragBegan = 1 << 10,
+		MarkerDragged = 1 << 11,
+		MarkerDragEnded = 1 << 12,
+		All = 65535
+	}
+
+	[Native]
+	public enum NMAMapTransitDisplayMode : nint
+	{
+		Nothing,
+		StopAndAccess,
+		Everything
+	}
+
+	[Native]
+	public enum NMATrafficLayer : nint
+	{
+		Flow = 1,
+		Incidents = 2,
+		OnRoute = 4,
+		All = 255
+	}
+
+	[Native]
+	public enum NMAMapLayerCategory : nint
+	{
+		Land,
+		Water,
+		LabelOcean,
+		LabelSea,
+		LabelWaterOther,
+		Beach,
+		Woodland,
+		Desert,
+		Glacier,
+		LabelBeach,
+		LabelWoodland,
+		LabelDesert,
+		LabelGlacier,
+		AirportArea,
+		AmusementPark,
+		AnimalPark,
+		Builtup,
+		Cemetery,
+		GolfCourse,
+		HarborArea,
+		HospitalCampus,
+		IndustrialComplex,
+		MilitaryBase,
+		NationalPark,
+		NativeReservation,
+		OutlineMilitaryBase,
+		OutlineNationalPark,
+		OutlineNativeReservation,
+		CityPark,
+		PedestrianArea,
+		Railyard,
+		ShoppingComplex,
+		SportsComplex,
+		UniversityCampus,
+		LabelAirportArea,
+		LabelAmusementPark,
+		LabelAnimalPark,
+		LabelCemetery,
+		LabelGolfCourse,
+		LabelHarborArea,
+		LabelHospitalCampus,
+		LabelIndustrialComplex,
+		LabelMilitaryBase,
+		LabelNationalPark,
+		LabelNativeReservation,
+		LabelCityPark,
+		LabelPedestrianArea,
+		LabelRailyard,
+		LabelShoppingComplex,
+		LabelSportsComplex,
+		LabelUniversityCampus,
+		StreetCategory0,
+		StreetCategory1,
+		StreetCategory2,
+		StreetCategory3,
+		StreetCategory4,
+		StreetCategoryPedestrian,
+		StreetCategoryWalkway,
+		LabelStreetCategory0,
+		LabelStreetCategory1,
+		LabelStreetCategory2,
+		LabelStreetCategory3,
+		LabelStreetCategory4,
+		LabelStreetCategoryPedestrian,
+		LabelStreetCategoryWalkway,
+		RoadsignIcon,
+		ExitSign,
+		BorderCountry,
+		BorderState,
+		BorderRegional,
+		BorderBuiltup,
+		BorderLineOfControl,
+		NeighborhoodArea,
+		LabelContinent = 74,
+		LabelMajorCountry,
+		LabelMinorCountry,
+		LabelState,
+		LabelStateAbbreviation,
+		LabelCityCapital,
+		LabelCityStateCapital,
+		LabelCityOther,
+		LabelNeighborhoodArea,
+		PublicTransitLine,
+		LabelPublicTransitLine,
+		IconPublicTransitStation,
+		LabelPublicTransitStation,
+		Relief,
+		Background,
+		LabelMountain,
+		IconMountain,
+		LabelIsland,
+		Building,
+		LabelBuilding,
+		PointAddress,
+		PedestrianFeature,
+		Railroad,
+		Ferry,
+		LabelFerry,
+		PoiIcon,
+		PoiLabel,
+		Count,
+		None
+	}
+
+	[Native]
+	public enum NMAMapPoiCategory : nint
+	{
+		AirLineAccess,
+		AmusementPark,
+		CarDealer,
+		Casino,
+		Cinema,
+		Company,
+		ConcertHall,
+		Congress,
+		Courthouse,
+		CulturalCentre,
+		ExhibitionCentre,
+		GolfCourse,
+		GovernmentOffice,
+		HolidayPark,
+		Museum,
+		Opera,
+		ParkingGarage,
+		PetrolStation,
+		PlaceOfWorship,
+		PostOffice,
+		RentACarFacility,
+		RestArea,
+		Restaurant,
+		Shop,
+		ShoppingCentre,
+		Stadium,
+		Theatre,
+		TouristAttraction,
+		TouristInformationCentre,
+		University,
+		Zoo,
+		Library,
+		Camping,
+		BarDisco,
+		Embassy,
+		FerryTerminal,
+		FrontierCrossing,
+		Hospital,
+		Hotel,
+		ParkingArea,
+		Police,
+		RailwayStation,
+		MetroStation,
+		Airport,
+		MountainPass,
+		MountainPeak,
+		Carrepair,
+		CashDispenser,
+		ParkRecreation,
+		Pharmacy,
+		Beach,
+		BusStation = 57,
+		Education = 106,
+		ResidentialArea = 117,
+		EVChargingStation = 196,
+		NightClub = 203,
+		PublicToilet = 204,
+		Laundry = 207,
+		TaxiStand = 216,
+		RailwayAccess = 217,
+		BarsCafes = 218,
+		Parking = 219,
+		SportOutdoor = 220,
+		MetroAccess = 221,
+		AutMetroAccess = 222,
+		AutMetroStop = 223,
+		BelMetroAccess = 224,
+		BelMetroStop = 225,
+		CzeMetroAccess = 226,
+		CzeMetroStop = 227,
+		DenMetroAccess = 228,
+		DenMetroStop = 229,
+		FinMetroAccess = 230,
+		FinMetroStop = 231,
+		FraMetroAccess = 232,
+		FraMetroStop = 233,
+		FraRerAccess = 234,
+		FraRerStop = 235,
+		DeuMetroAccess = 236,
+		DeuMetroStop = 237,
+		DeuSbahnAccess = 238,
+		DeuSbahnStop = 239,
+		ItaMetroAccess = 240,
+		ItaMetroStop = 241,
+		NorMetroAccess = 242,
+		NorMetroStop = 243,
+		PrtMetroAccess = 244,
+		PrtMetroStop = 245,
+		EspBarcelonaMetroAccess = 246,
+		EspBarcelonaMetroStop = 247,
+		EspCercaniasMetroAccess = 248,
+		EspCercaniasMetroStop = 249,
+		EspMadridMetroAccess = 250,
+		EspMadridMetroStop = 251,
+		SweMetroAccess = 252,
+		SweMetroStop = 253,
+		GbrGlasgowMetroAccess = 254,
+		GbrGlasgowMetroStop = 255,
+		GbrLondonMetroAccess = 256,
+		GbrLondonMetroStop = 257,
+		All = 258
+	}
+
+	[Native]
+	public enum NMAMapRouteRenderType : nuint
+	{
+		Primary = 1,
+		Secondary = 2,
+		UserDefined = 3
+	}
+
+	[Native]
+	public enum NMAMapTileRequestStatus : nuint
+	{
+		Unitialized,
+		Pending,
+		Failed,
+		Complete
+	}
+
+	[Native]
+	public enum NMAPositionIndicatorType : nuint
+	{
+		Raw,
+		MapMatched,
+		Current
+	}
+
+	[Native]
+	public enum NMALaneInformationDirection : nuint
+	{
+		Undefined = 0,
+		Straight = 1 << 0,
+		SlightlyRight = 1 << 1,
+		Right = 1 << 2,
+		SharpRight = 1 << 3,
+		UTurnLeft = 1 << 4,
+		SharpLeft = 1 << 5,
+		Left = 1 << 6,
+		SlightlyLeft = 1 << 7,
+		MergeRight = 1 << 8,
+		MergeLeft = 1 << 9,
+		MergeLanes = 1 << 10,
+		UTurnRight = 1 << 11,
+		SecondRight = 1 << 12,
+		SecondLeft = 1 << 13
+	}
+
+	[Native]
+	public enum NMALaneInformationRecommendationState : nuint
+	{
+		NotRecommended,
+		Recommended,
+		HighlyRecommended,
+		NotAvailable
+	}
+
+	[Native]
+	public enum NMALaneInformationMarkingType : nuint
+	{
+		NotAvailable,
+		LongDashed,
+		DoubleSolidLine,
+		SingleSolidLine,
+		DoubleInnerSingleOuterDashed,
+		DoubleInnerDashedOuterSingle,
+		ShortDashed,
+		SharedArea,
+		DashedBlocks,
+		PhysicalDivider,
+		DoubleDashed,
+		NoDivider,
+		CrossingAlert
+	}
+
+	[Native]
+	public enum NMALaneInformationCrossingRestriction : nuint
+	{
+		NoRestriction,
+		Left,
+		Right,
+		Both
+	}
+
+	[Native]
+	public enum NMANavigationRoadType : nuint
+	{
+		NonHighway,
+		Highway
+	}
+
+	[Native]
+	public enum NMANavigationVoicePromptType : nuint
+	{
+		Announcement,
+		Reminder1,
+		Reminder2,
+		Command
+	}
+
+	[Native]
+	public enum NMAVoiceGender : nuint
+	{
+		Female,
+		Male,
+		Both,
+		Unknown
+	}
+
+	[Native]
+	public enum NMAVoiceCatalogError : nuint
+	{
+		None,
+		Unknown,
+		NotFound,
+		InvalidOperation,
+		InvalidParameters,
+		FileOpen,
+		DownloadNotReady,
+		VoiceLoadingFailed,
+		MissingMandatoryFields,
+		OutOfMemory,
+		Cancelled
+	}
+
+	[Native]
+	public enum NMAAutoSuggestType : nuint
+	{
+		Unknown = 0,
+		Place,
+		Search,
+		Query
+	}
+
+	[Native]
+	public enum NMACategoryFilterType : nuint
+	{
+		None = 0,
+		Accommodation,
+		AdministrativeAreasBuildings,
+		EatDrink,
+		GoingOut,
+		LeisureOutdoor,
+		NaturalGeographical,
+		Shopping,
+		SightsMuseums,
+		Transport,
+		PetrolStation,
+		AtmBankExchange,
+		ToiletRestArea,
+		HospitalHealthCareFacility
+	}
+
+	[Native]
+	public enum NMAReverseGeocodeMode : nuint
+	{
+		RetrieveAddresses = 0,
+		RetrieveAreas,
+		RetrieveLandmarks,
+		RetrieveAll,
+		TrackPosition
+	}
+
+	[Native]
+	public enum NMAMediaType : nuint
+	{
+		Unknown = 0,
+		Editorial,
+		Image,
+		Review,
+		Rating
+	}
+
+	[Native]
+	public enum NMAPlacesAutoSuggestionResultType : nuint
+	{
+		Address = 1,
+		Place = 1 << 1,
+		Category = 1 << 2,
+		Chain = 1 << 3,
+		Query = 1 << 4
+	}
+
+	[Native]
+	public enum NMAPrefetchStatus : nuint
+	{
+		InProgress,
+		Success,
+		Failure,
+		Cancelled
+	}
+
+	[Native]
+	public enum NMAPrefetchRequestError : nuint
+	{
+		None = 0,
+		Unknown,
+		Busy,
+		InvalidParameters,
+		OperationNotAllowed,
+		RouteAreaTooBig
+	}
+
+	[Native]
+	public enum NMACoreRouterConnectivity : nuint
+	{
+		Default,
+		Offline,
+		Online
+	}
+
+	[Native]
+	public enum NMAUrbanMobilityTransportType : nuint
+	{
+		HighspeedTrain = 0,
+		IntercityTrain = 1,
+		InterregionalTrain = 2,
+		RegionalTrain = 3,
+		CityTrain = 4,
+		Bus = 5,
+		Ferry = 6,
+		Subway = 7,
+		Tram = 8,
+		PrivateBus = 9,
+		Inclined = 10,
+		Aerial = 11,
+		RapidBus = 12,
+		Monorail = 13,
+		Flight = 14,
+		Unknown = 15,
+		Bike = 17,
+		BikeShare = 18,
+		Walk = 20,
+		Car = 21,
+		CarShare = 22,
+		Taxi = 23,
+		Undefined = 24
+	}
+
+	[Native]
+	public enum NMAUrbanMobilityError : nuint
+	{
+		None = 0,
+		Offline = 1,
+		BadResponseCode = 2,
+		MalformedResponse = 3,
+		Unknown = 4,
+		Unauthorized = 5,
+		NoCoverage = 6,
+		NoResponse = 7,
+		NotFound = 8,
+		InvalidParameters = 9,
+		Unexpected = 10,
+		UnavailableAPI = 11,
+		InvalidPeriod = 12,
+		RoutingNotPossible = 13,
+		StartDestinationTooClose = 14,
+		NoStationNearby = 15,
+		InvalidOperation = 16,
+		OutOfMemory = 17,
+		RoutingCancelled = 18,
+		ViolatesOptions = 19,
+		InsufficientMapData = 20,
+		ServiceUnavailable = 21,
+		NetworkCommunication = 22,
+		OperationNotAllowed = 23
+	}
+
+	[Native]
+	public enum NMAUrbanMobilityFeatureAvailability : nuint
+	{
+		AvailabilityUnknown = 0,
+		Available = 1,
+		NotAvailable = 2
+	}
+
+	[Native]
+	public enum NMARouteElementType : nint
+	{
+		Transit = 0,
+		Road,
+		Invalid
+	}
+
+	[Native]
+	public enum NMATravelDirection : nuint
+	{
+		Forward = 0,
+		Backward = 1
+	}
+
+	[Native]
+	public enum NMARoutingViolatedOption : nint
+	{
+		OptionNone = 0,
+		OptionBlockedRoad = 1 << 12,
+		OptionTurnRestriction = 1 << 13,
+		OptionStartDirection = 1 << 14,
+		PermanentTruckRestriction = 1 << 15,
+		OptionZoneRestriction = 1 << 16
+	}
+
+	[Native]
+	public enum NMATransitRoutingOption : nuint
+	{
+		PublicBus = 1 << 0,
+		TouristicBus = 1 << 1,
+		IntercityBus = 1 << 2,
+		ExpressBus = 1 << 3,
+		MetroRail = 1 << 4,
+		LightRail = 1 << 5,
+		RegionalRail = 1 << 6,
+		RegionalTrain = 1 << 7,
+		IntercityTrain = 1 << 8,
+		HighSpeedTrain = 1 << 9,
+		MonoRail = 1 << 10,
+		Aerial = 1 << 11,
+		Inclined = 1 << 12,
+		Water = 1 << 13
+	}
+
+	[Native]
+	public enum NMATunnelCategory : nuint
+	{
+		None,
+		B,
+		C,
+		D,
+		E
+	}
+
+	[Native]
+	public enum NMAHazardousGoodsType : nuint
+	{
+		Explosive = 1 << 0,
+		Gas = 1 << 1,
+		Flammable = 1 << 2,
+		Combustible = 1 << 3,
+		Organic = 1 << 4,
+		Poison = 1 << 5,
+		RadioActive = 1 << 6,
+		Corrosive = 1 << 7,
+		PoisonousInhalation = 1 << 8,
+		HarmfulToWater = 1 << 9,
+		Other = 1 << 10
+	}
+
+	[Native]
+	public enum NMATruckType : nuint
+	{
+		None,
+		Truck,
+		TractorTruck
+	}
+
+	[Native]
+	public enum NMATruckRestrictionsMode : nuint
+	{
+		NoViolations,
+		PenalizeViolations
+	}
+
+	[Native]
+	public enum NMAUrbanMobilityRoutingTypeOption : nuint
+	{
+		All = 0,
+		TimeTable = 1,
+		SimpleRouting = 2,
+		RealTimeRouting = 3
+	}
+
+	[Native]
+	public enum NMAUrbanMobilityUnits : nuint
+	{
+		Metric,
+		Imperial
+	}
+
+	[Native]
+	public enum NMAUrbanMobilityOption : nuint
+	{
+		HighSpeedTrains = 1 << 0,
+		IntercityEurocityTrains = 1 << 1,
+		InterregionalFastTrains = 1 << 2,
+		RegionalTrains = 1 << 3,
+		CityTrains = 1 << 4,
+		Busses = 1 << 5,
+		BoatFerries = 1 << 6,
+		MetroSubway = 1 << 7,
+		Tram = 1 << 8,
+		OrderedServiceTaxi = 1 << 9,
+		InclinedFunicular = 1 << 10,
+		AerialCableCar = 1 << 11,
+		RapidBus = 1 << 12,
+		Monorail = 1 << 13,
+		Airplane = 1 << 14,
+		Undefined = 1 << 15
+	}
+
+	[Native]
+	public enum NMARoutingZoneType : nuint
+	{
+		Vignette = 0,
+		CongestionPricing = 1,
+		AdministrativeClass = 2,
+		Environmental = 3
+	}
+
+	[Native]
+	public enum NMATransitLineStyle : nuint
+	{
+		Solid,
+		Dotted,
+		Dashed,
+		Undefined
+	}
+
+	[Native]
+	public enum NMATruckRestrictionType : nuint
+	{
+		TruckRestriction = 0,
+		WeightRestriction = 1,
+		HeightRestriction = 2,
+		LengthRestriction = 3,
+		WidthRestriction = 4,
+		WeightPerAxelRestriction = 5,
+		KpraLengthRestriction = 6,
+		PreferredRoute = 7,
+		HazMatPermitRequired = 8,
+		SpeedLimit = 9,
+		Toll = 10,
+		Unknown = 11
+	}
+
+	[Native]
+	public enum NMATruckRestrictionHazMat : nuint
+	{
+		None = 0,
+		Explosives = 1,
+		Gas = 2,
+		Flammable = 3,
+		FlammableSolidCombustible = 4,
+		Organic = 5,
+		Poison = 6,
+		Radioactive = 7,
+		Corrosive = 8,
+		Other = 9,
+		Any = 10,
+		Pih = 11,
+		HarmfulForWater = 12,
+		ExplosiveFlammable = 13,
+		TunnelCategoryB = 14,
+		TunnelCategoryC = 15,
+		TunnelCategoryD = 16,
+		TunnelCategoryE = 17,
+		Unknown = 18
+	}
+
+	[Native]
+	public enum NMATruckRestrictionWeatherType : nuint
+	{
+		None = 0,
+		Rain = 1,
+		Snow = 2,
+		Fog = 3,
+		Unknown = 4
+	}
+
+	[Native]
+	public enum NMATruckRestrictionTrailerType : nuint
+	{
+		None = 0,
+		Value1 = 1,
+		Value2 = 2,
+		Value3 = 3,
+		Value4 = 4,
+		Unknown = 5
+	}
+
+	[Native]
+	public enum NMAWaypointType : nuint
+	{
+		StopWaypoint,
+		ViaWaypoint
+	}
+
+	[Native]
+	public enum NMAWaypointDirection : nuint
+	{
+		Any,
+		Positive,
+		Negative
+	}
+
+	[Native]
+	public enum NMARoadSide : nuint
+	{
+		Undefined,
+		UnknownLeft,
+		UnknownRight,
+		Left,
+		Right
+	}
+
+	[Native]
+	public enum NMATollCostRequestError : nuint
+	{
+		NoPermission = 1,
+		AlreadyRunning = 2,
+		Cancelled = 3,
+		InvalidParameters = 4,
+		ConnectionError = 5,
+		ServerError = 6,
+		UnknownError = 7
+	}
+
+	[Native]
+	public enum NMATollCostVehicleType : nuint
+	{
+		Motorcycle = 1,
+		Auto = 2,
+		Truck = 3,
+		MotorHome = 4,
+		Minibus = 5,
+		Bus = 6,
+		MotorcycleSidecar = 7,
+		Tricyle = 8,
+		DeliveryTruck = 9,
+		Snowmobile = 10,
+		PickUp = 11,
+		Tractor = 12,
+		Taxi = 13,
+		HcmEme = 14
+	}
+
+	[Native]
+	public enum NMATollCostTrailerType : nuint
+	{
+		None = 0,
+		Caravan = 1,
+		Trailer = 2
+	}
+
+	[Native]
+	public enum NMATollCostTrailersCount : nuint
+	{
+		outTrailer = 0,
+		OneTrailer = 1,
+		TwoTrailers = 2,
+		ThreeOrMoreTrailers = 3
+	}
+
+	[Native]
+	public enum NMATollCostHybridType : nuint
+	{
+		None = 0,
+		PartlyRunningOnElectricity = 1
+	}
+
+	[Native]
+	public enum NMATollCostEmissionType : nuint
+	{
+		None = 0,
+		EuroI = 1,
+		EuroII = 2,
+		EuroIII = 3,
+		EuroIV = 4,
+		EuroV = 5,
+		EuroVI = 6,
+		EuroEEV = 7,
+		ElectricVehicles = 8
+	}
+
+	[Native]
+	public enum NMATollCostShippedHazardousGoods : nuint
+	{
+		None = 0,
+		Explosives = 1,
+		AnyHazardousMaterial = 2
+	}
+
+	[Native]
+	public enum NMAUrbanMobilitySearchOption : nuint
+	{
+		Unset = 0,
+		Yes = 1,
+		No = 2
+	}
+
+	[Native]
+	public enum NMACoverageUpdateType : nuint
+	{
+		New = 0,
+		Updated,
+		All
+	}
+
+	[Native]
+	public enum NMAUrbanMobilityFareType : nuint
+	{
+		NotAvailable = 0,
+		Hourly = 1,
+		Daily = 2,
+		Range = 3,
+		Unrecognized = 4
+	}
+
+	[Native]
+	public enum NMAUrbanMobilityLinkType : nuint
+	{
+		Agency = 0,
+		AgencyLogo = 1,
+		Tariff = 2,
+		Website = 3,
+		Booking = 4,
+		Alert = 5,
+		Unknown = 6
+	}
+
+	[Native]
+	public enum NMAUrbanMobilityManeuverDirection : nuint
+	{
+		Undefined = 0,
+		Forward,
+		Right,
+		Left,
+		BearRight,
+		LightRight,
+		HardRight,
+		UturnRight,
+		UturnLeft,
+		HardLeft,
+		LightLeft,
+		BearLeft
+	}
+
+	[Native]
+	public enum NMAUrbanMobilityCoverageType : nuint
+	{
+		RealTime = 0,
+		SimpleRouting = 1,
+		TimeTable = 2,
+		Unknown = 3
+	}
+
+	[Native]
+	public enum NMAUrbanMobilityOperatorType : nuint
+	{
+		Unknown = 0,
+		Estimated = 1,
+		TimeTable = 2,
+		RealTime = 3
+	}
+
+	[Native]
+	public enum NMAUrbanMobilityRealTimeInfoStatus : nuint
+	{
+		Ok,
+		Redirected,
+		Replaced,
+		Cancelled,
+		Additional
+	}
+
+	[Native]
+	public enum NMAUrbanMobilityViolatedOption : nuint
+	{
+		MaxWalkingDistance = 1 << 0,
+		WalkSpeed = 1 << 1,
+		MaxChangesCount = 1 << 2,
+		RestrictTransportTypes = 1 << 3,
+		EstimatedRouting = 1 << 4
+	}
+
+	[Native]
+	public enum NMAUrbanMobilityRouterConnectivity : nuint
+	{
+		Default,
+		Offline,
+		Online
+	}
+
+	[Native]
+	public enum NMASubsequentRouteType : nuint
+	{
+		Forward = 0,
+		Backward
+	}
+
+	[Native]
+	public enum NMAUrbanMobilitySearchNameMatchingMethod : nuint
+	{
+		Unspecified = 0,
+		Strict = 1,
+		Fuzzy = 2
+	}
+
+	[Native]
+	public enum NMAVenue3dBaseLocationType : nuint
+	{
+		Space,
+		Outdoor,
+		Level,
+		Other
+	}
+
+	[Native]
+	public enum NMAVenue3dCombinedNavigationState : nuint
+	{
+		Idle = 0,
+		Running,
+		Simulating,
+		Paused
+	}
+
+	[Native]
+	public enum NMAVenue3dCombinedNavigationType : nuint
+	{
+		None = 0,
+		Indoor,
+		Link,
+		Outdoor
+	}
+
+	[Native]
+	public enum NMAVenue3dRoutingError : nuint
+	{
+		NoError,
+		Arguments,
+		Internal,
+		CoreMap,
+		Unknown
+	}
+
+	[Native]
+	public enum NMAVenue3dRouteSectionType : nuint
+	{
+		Venue,
+		Outdoor,
+		Link
+	}
+
+	[Native]
+	public enum NMAVenue3dDeselectEvent : nuint
+	{
+		MapMoved,
+		MapZoomedOut,
+		MapTappedOutside,
+		LayerDisabled,
+		SelectedOther,
+		Manual
+	}
+
+	[Native]
+	public enum NMAVenue3dNavigationState : nuint
+	{
+		Idle = 0,
+		Running,
+		Paused
+	}
+
+	[Native]
+	public enum NMAVenue3dTrackingTilt : nuint
+	{
+		NMAVenue3dTrackingTilt2D,
+		NMAVenue3dTrackingTilt3D,
+		Custom
+	}
+
+	[Native]
+	public enum NMAVenue3dTrackingMode : nuint
+	{
+		Follow,
+		NorthUp,
+		FreeRotation
+	}
+
+	[Native]
+	public enum NMAVenue3dRouteActionType : nuint
+	{
+		None,
+		Enter,
+		Exit
+	}
+
+	[Native]
+	public enum NMAVenue3dRouteLevelChangeType : nuint
+	{
+		None,
+		Up,
+		Down
+	}
+
+	[Native]
+	public enum NMAVenue3dRouteConnectorType : nuint
+	{
+		Elevator,
+		Escalator,
+		Stairs,
+		Skywalk,
+		Shuttle,
+		MovingSidewalk,
+		Ramp,
+		OtherCategory,
+		NotConnector
+	}
+
+	[Native]
+	public enum NMAVenue3dServiceVenueLoadStatus : nuint
+	{
+		OnlineSuccess,
+		OfflineSuccess,
+		Failed
+	}
+
+	[Native]
+	public enum NMAVenue3dServiceInitializationStatus : nuint
+	{
+		OnlineSuccess,
+		OfflineSuccess,
+		AuthenticationFailed,
+		StyleInitializationFailed,
+		IconInitializationFailed,
+		IndexInitializationFailed,
+		OnlineFailed,
+		NotStarted,
+		InProgress,
+		Locked
+	}
+
+	[Native]
+	public enum NMAVenue3dSimulationState : nuint
+	{
+		Idle = 0,
+		Running,
+		Paused
+	}
+
+	[Native]
+	public enum NMAVenue3dSpaceType : nuint
+	{
+		General,
+		Facility
 	}
 }

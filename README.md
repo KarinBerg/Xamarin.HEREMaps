@@ -7,7 +7,17 @@ You need to register at https://developer.here.com and get a license for the HER
 **Compatibility:**<br>
 iOS:
 - HERE iOS SDK supports iOS 12 or above. iOS 12 is recommended for optimal operation. <br>
-- At the moment not the whole functionality of the SDK is binded. So only the following header files are binded and can be used inside a Xamrin.iOS app: [ios-binded-headers]
+- At the moment not the whole functionality of the SDK is binded. So only the following header files are binded and can be used inside a Xamarin.iOS app: [ios-binded-headers]
+- Not supported yet:
+    - NMAMapView software renderer
+    - NMAARMeshObject
+    - NMAFloatMesh
+    - NMAGeoMesh
+    - NMAMapGeoModel
+    - NMAMapLocalModel
+    - no class from the "Custom Location Extension 2"
+    - no class from the "Fleet Telematics Custom Route"
+    - NMAMapFTCRRoute
 
 Android:
 - Minimum supported API Level of the used HEREMaps SDK is 17 which corresponds Android 4.2.x "Jelly Bean". (android:minSdkVersion)

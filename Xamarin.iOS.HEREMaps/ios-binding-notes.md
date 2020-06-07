@@ -24,6 +24,7 @@ So NMAKit_mod.h lists all the header files with should be bind by Sharpie.
 - Remove duplicated method „IntPtr Constructor(NMAGeoCoordinates topRight, NMAGeoCoordinates bottomLeft);“
 - Rename methods in interface NMAVenue3dMapLayerDelegate
 - Change „interface NMAMapOverlay : INMAMapViewDelegate“ into „interface NMAMapOverlay : NMAMapViewDelegate“
+- if you get an error like "Error CS0708: 'NMARoutingMode_NMATruckRoutingMode.TruckRestrictionsMode': cannot declare instance members in a static class (CS0708)" you have to make the generated property 'static' via [Static] attribute because C# Extensions are static classes which can not have non-static properties or methods.
 
 # Official documentation of Binding Objective-C:
 https://docs.microsoft.com/en-us/xamarin/cross-platform/macios/binding/?context=xamarin/ios
