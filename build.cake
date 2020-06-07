@@ -1,4 +1,5 @@
 #addin nuget:?package=Cake.SemVer&loaddependencies=true&version=4.0.0
+#addin "Cake.ExtendedNuGet"
 
 // Script Arguments
 var target = Argument("target", "Default");
@@ -87,7 +88,7 @@ Task("CopyLicense")
 	.IsDependentOn("Build")
 	.Does(() => { CopyFile(sourceLicenseFile, targetLicenseFile);});
 
-Task("NuGet")
+Task("CreateNuGet")
 	.IsDependentOn("CopyLicense")
 	.Does (() =>
 	{
@@ -116,8 +117,19 @@ Task("NuGet")
 				});	
 	});
 
+Task("UploadNuGet")
+	.Does (() =>
+	{
+		var settings = new PublishNuGetsSettings
+		{
+			MaxAttempts = 3,
+			ForcePush = false
+		};
+		PublishNuGets("https://api.nuget.org/v3/index.json", "oy2gagclsrrkwkprf5japznc257uihku7ooxp2zuvtwoou", settings, new string[] {"artifacts/*.nupkg"});
+	});
+
 Task("Default")
-    .IsDependentOn("NuGet")
+    .IsDependentOn("CreateNuGet")
     .Does(() =>
 {
   Information("Create NuGet packages");
