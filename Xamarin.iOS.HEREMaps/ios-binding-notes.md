@@ -1,5 +1,5 @@
 # Important information:
-I do not bind all header files of the HereMaps iOS Framework with are listed in NMAKit.h. Instead I concentrated on the ones I need at the moment. 
+I do not bind all of the header files of the HereMaps iOS Framework which are listed in NMAKit.h. Instead I concentrated on the ones I need at the moment. 
 So NMAKit_mod.h lists all the header files with should be bind by Sharpie.
 
 # Requirements:
