@@ -16,6 +16,9 @@ namespace HereMapsTestApp
         [Export("window")]
         public UIWindow Window { get; set; }
 
+        public static UIStoryboard Storyboard = UIStoryboard.FromName("Main", null);
+        public static UIViewController initialViewController;
+
         [Export("application:didFinishLaunchingWithOptions:")]
         public bool FinishedLaunching(UIApplication application, NSDictionary launchOptions)
         {
@@ -23,6 +26,13 @@ namespace HereMapsTestApp
             // If not required for your application you can safely delete this method
             NMAApplicationContext.SetAppId(appId, appCode, appLicenseKey);
 
+            Window = new UIWindow(UIScreen.MainScreen.Bounds);
+
+            initialViewController = Storyboard.InstantiateInitialViewController() as UIViewController;
+
+            Window.RootViewController = initialViewController;
+            Window.AddSubview(initialViewController.View);
+            Window.MakeKeyAndVisible();
             return true;
         }
 
