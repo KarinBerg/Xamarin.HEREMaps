@@ -7,6 +7,7 @@ You need to register at https://developer.here.com and get a license for the HER
 **Compatibility:**<br>
 iOS:
 - HERE iOS SDK supports iOS 12 or above. iOS 12 is recommended for optimal operation. <br>
+- The Nuget package only contains the ARM64 cpu architecture because otherwise the package exceeds the size limitation of nuget.org
 - At the moment not the whole functionality of the SDK is binded. So only the following header files are binded and can be used inside a Xamarin.iOS app: [ios-binded-headers]
 - Not supported yet:
     - NMAMapView software renderer
