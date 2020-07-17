@@ -2,4 +2,5 @@
 <resources>
     <string name="app_name">Xamarin.Android.HereMapsTestApp</string>
     <string name="action_settings">Settings</string>
+    <string name="CalculateRoute">Calculate Route</string>
 </resources>
